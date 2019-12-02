@@ -1,0 +1,314 @@
+#mainNav {
+    min-height: 56px;
+    background-color: #433535eb;
+}
+
+#mainNav .navbar-toggler {
+    font-size: 80%;
+    padding: 0.75rem;
+    color: #dee2e6;
+    border: 1px solid #e9ecef;
+}
+
+#mainNav .navbar-toggler:focus {
+    outline: none;
+}
+
+#mainNav .navbar-brand {
+    color: #e9ecef;
+    font-weight: 700;
+    padding: .9rem 0;
+}
+
+#mainNav .navbar-nav .nav-item:hover {
+    color: fade(white, 80%);
+    outline: none;
+    background-color: transparent;
+}
+
+#mainNav .navbar-nav .nav-item:active,
+#mainNav .navbar-nav .nav-item:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+@media (min-width: 992px) {
+    #mainNav {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+        background-color: transparent;
+        transition: background-color 0.3s ease-in-out;
+    }
+    #mainNav .navbar-brand {
+        padding: .5rem 0;
+        color: #161616;
+    }
+    #mainNav .nav-link {
+        transition: none;
+        padding: 2rem 1.5rem;
+        color: rgba(255, 255, 255, 0.5);
+    }
+    #mainNav .nav-link:hover {
+        color: rgba(255, 255, 255, 0.75);
+    }
+    #mainNav .nav-link:active {
+        color: #ffffff;
+    }
+    #mainNav.navbar-shrink {
+        background-color: #3f3537;
+    }
+    #mainNav.navbar-shrink .navbar-brand {
+        color: #c6c4c1;
+    }
+    #mainNav.navbar-shrink .nav-link {
+        color: #c0bdbb;
+        padding: 1.5rem 1.5rem 1.25rem;
+        border-bottom: 0.25rem solid transparent;
+    }
+    #mainNav.navbar-shrink .nav-link:hover {
+        color: #e9ecef;
+    }
+    #mainNav.navbar-shrink .nav-link:active {
+        color: #dee2e6;
+    }
+    #mainNav.navbar-shrink .nav-link.active {
+        color: #e9ecef;
+        outline: none;
+        border-bottom: 0.25rem solid #e9ecef;
+    }
+}
+
+.masthead {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 35rem;
+    padding: 15rem 0;
+    background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #2b1616 100%), url("../images/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+.masthead h1 {
+    font-family: 'Varela Round';
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.8rem;
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.17));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.masthead h2 {
+    max-width: 20rem;
+    font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+    .masthead h1 {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .masthead {
+        height: 100vh;
+        padding: 0;
+    }
+    .masthead h1 {
+        font-size: 6.5rem;
+        line-height: 6.5rem;
+        letter-spacing: 0.8rem;
+    }
+    .masthead h2 {
+        max-width: 30rem;
+        font-size: 1.25rem;
+    }
+}
+
+.btn {
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+    padding: 1.25rem 2rem;
+    font-family: 'Varela Round';
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: .15rem;
+    border: 0;
+}
+
+.btn-primary {
+    background-color: #663b3f;
+}
+
+.btn-primary:hover {
+    background-color: #65625f;
+}
+
+.btn-primary:focus {
+    background-color: #666460;
+    color: white;
+}
+
+.btn-primary:active {
+    background-color: #383d41 !important;
+}
+
+.about-section {
+    padding-top: 10rem;
+    background: linear-gradient(to bottom, #2b1616f0 0%, rgba(81, 59, 59, 0.9) 75%, rgba(30, 30, 30, 0.8) 100%);
+}
+
+.about-section p {
+    margin-bottom: 5rem;
+}
+
+.products-section {
+    padding: 10rem 0;
+}
+
+.products-section .featured-text {
+    padding: 2rem;
+}
+
+@media (min-width: 992px) {
+    .products-section .featured-text {
+        padding: 0 0 0 2rem;
+        border-left: 0.5rem solid #dee2e6;
+    }
+}
+
+.products-section .product-text {
+    padding: 3rem;
+    font-size: 90%;
+}
+
+@media (min-width: 992px) {
+    .products-section .product-text {
+        padding: 5rem;
+    }
+    .products-section .product-text hr {
+        border-color: #dee2e6;
+        border-width: .25rem;
+        width: 30%;
+    }
+}
+
+#products .container-fluid {
+    max-width: 1920px;
+}
+
+#products .container-fluid .products-box {
+    position: relative;
+    display: block;
+}
+
+#products .container-fluid .products-box .products-box-caption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    opacity: 0;
+    color: #fff;
+    background: rgba(244, 98, 58, 0.9);
+    transition: opacity 0.25s ease;
+    text-align: center;
+}
+
+#products .container-fluid .products-box .products-box-caption .products-category {
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#products .container-fluid .products-box .products-box-caption .product-name {
+    font-size: 1.2rem;
+}
+
+#products .container-fluid .products-box:hover .products-box-caption {
+    opacity: 1;
+}
+
+.contact-section {
+    padding: 5rem 0 0;
+}
+
+.contact-section .card {
+    border: 0;
+    border-bottom: 0.25rem solid #010101;
+}
+
+.contact-section .card h4 {
+    font-size: 0.8rem;
+    font-family: 'Varela Round';
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+}
+
+.contact-section .card hr {
+    border-color: #594d4d;
+    border-width: 0.25rem;
+    width: 3rem;
+}
+
+.contact-section .social {
+    margin-top: 5rem;
+}
+
+.contact-section .social a {
+    text-align: center;
+    height: 3rem;
+    width: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100%;
+    line-height: 3rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.contact-section .social a:hover {
+    color: #e9ecef;
+}
+
+.contact-section .social a:active {
+    color: #3f3232;
+}
+
+body {
+    font-family: 'Nunito';
+    letter-spacing: 0.0625em;
+}
+
+a {
+    color: #594d4d;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+    color: #e9ecef;
+}
+
+.bg-black {
+    background-color: #3f3232 !important;
+}
+
+.bg-primary {
+    background-color: #e9ecef !important;
+}
+
+.text-primary {
+    color: #dee2e6 !important;
+}
+
+footer {
+    padding: 5rem 0;
+}
