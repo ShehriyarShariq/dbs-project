@@ -1,5 +1,5 @@
-var form = document.getElementById("form");
-var signUpBtn = document.getElementById("signUpBtn");
+let form = document.getElementById("form");
+let signUpBtn = document.getElementById("signUpBtn");
 
 form.addEventListener("submit", event => {
   event.preventDefault();

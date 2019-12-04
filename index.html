@@ -24,63 +24,110 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script>
+      $(function() {
+        $("#header").load("header.html", function() {
+          let navBar = document.getElementById("mainNav");
+          let headerDiv = document.getElementById("header");
+          let homeTab = document.getElementById("home");
+          let aboutTab = document.getElementById("about");
+          let headSection = document.getElementById("headSection");
+          let aboutSection = document.getElementById("aboutSection");
+
+          let isAboutAutoScroll = false;
+          let isHeadAutoScroll = false;
+
+          headerDiv.style.height = navBar.getBoundingClientRect().height + "px";
+
+          homeTab.classList.add("active");
+
+          const aboutTop = aboutSection.offsetTop;
+          const headerHeight = headerDiv.getBoundingClientRect().height;
+
+          homeTab.addEventListener("click", event => {
+            event.preventDefault();
+            homeTab.classList.add("active");
+            aboutTab.classList.remove("active");
+
+            $("html, body").animate(
+              {
+                scrollTop: headerHeight
+              },
+              100,
+              function() {
+                window.location.offsetTop = headerHeight;
+                isHeadAutoScroll = true;
+                isAboutAutoScroll = false;
+              }
+            );
+          });
+
+          aboutTab.addEventListener("click", event => {
+            if (this.hash !== "") {
+              event.preventDefault();
+
+              aboutTab.classList.add("active");
+              homeTab.classList.remove("active");
+
+              let hash = aboutTab.hash;
+
+              $("html, body").animate(
+                {
+                  scrollTop: $(hash).offset().top
+                },
+                100,
+                function() {
+                  window.location.hash = hash;
+                  isAboutAutoScroll = true;
+                  isHeadAutoScroll = false;
+                }
+              );
+            }
+          });
+
+          document.addEventListener("scroll", event => {
+            let currentTopPos =
+              (document.body.scrollTop || document.documentElement.scrollTop) +
+              headerHeight;
+
+            if (currentTopPos >= aboutTop - 100) {
+              if (!isHeadAutoScroll && !isAboutAutoScroll) {
+                aboutTab.classList.add("active");
+                homeTab.classList.remove("active");
+              }
+            } else {
+              if (isHeadAutoScroll) {
+                // homeTab.classList.add("active");
+                if (currentTopPos < aboutTop - 100) {
+                  isHeadAutoScroll = false;
+                }
+              } else if (isAboutAutoScroll) {
+                // aboutTab.classList.add("active");
+                if (currentTopPos >= aboutTop - 100) {
+                  isAboutAutoScroll = false;
+                }
+              } else {
+                homeTab.classList.add("active");
+                aboutTab.classList.remove("active");
+              }
+
+              console.log("currentTop: " + currentTopPos);
+              console.log("isAboutScroll: " + isAboutAutoScroll);
+              console.log("isHeadScroll: " + isHeadAutoScroll);
+            }
+          });
+        });
+      });
+    </script>
   </head>
 
   <body id="page-top">
-    <!--Navigation-->
-    <nav
-      class="navbar navbar-expand-lg navbar-light fixed-top navbar-shrink"
-      id="mainNav"
-    >
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">BELLARIA</a>
-        <button
-          class="navbar-toggler navbar-toggler-right collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="navbar-collapse collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger active" href="index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about-section"
-                >About</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="order.html">Order</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"
-                >Contact Us</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="login.html">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="sign-up.html"
-                >Sign Up</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <div id="header"></div>
 
     <!--Header-->
-    <header class="masthead">
+    <header id="headSection" class="masthead">
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">Bellaria</h1>
@@ -93,7 +140,7 @@
         </div>
       </div>
     </header>
-    <section id="about" class="about-section text-center">
+    <section id="aboutSection" class="about-section text-center">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
