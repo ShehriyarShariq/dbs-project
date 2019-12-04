@@ -13,16 +13,35 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <link href="css/style-login.css" rel="stylesheet" />
+
     <link
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
+
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script>
+      $(function() {
+        $("#header").load("header.html", function() {
+          let navBar = document.getElementById("mainNav");
+          let headerDiv = document.getElementById("header");
+          let loginTab = document.getElementById("loginOrNew");
+
+          headerDiv.style.height = navBar.getBoundingClientRect().height + "px";
+
+          loginTab.classList.add("active");
+        });
+      });
+    </script>
   </head>
 
   <body>
+    <div id="header"></div>
+
+    <link href="css/style-login.css" rel="stylesheet" />
+
     <div class="container">
       <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
