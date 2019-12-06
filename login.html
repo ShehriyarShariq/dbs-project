@@ -1,111 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BELLARIA - Login</title>
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+<head>
+  <title>BELLARIA - Login</title>
 
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-    <link
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
-    />
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
-    <script src="scripts/jquery-3.4.1.min.js"></script>
-    <script>
-      $(function() {
-        $("#header").load("header.html", function() {
-          let navBar = document.getElementById("mainNav");
-          let headerDiv = document.getElementById("header");
-          let loginTab = document.getElementById("loginOrNew");
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
 
-          headerDiv.style.height = navBar.getBoundingClientRect().height + "px";
+  <script src="scripts/jquery-3.4.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#header").load("header.html", function () {
+        let navBar = document.getElementById("mainNav");
+        let headerDiv = document.getElementById("header");
+        let loginTab = document.getElementById("loginOrNew");
 
-          loginTab.classList.add("active");
-        });
+        headerDiv.style.height = navBar.getBoundingClientRect().height + "px";
+
+        loginTab.classList.add("active");
       });
-    </script>
-  </head>
+    });
+  </script>
+</head>
 
-  <body>
-    <div id="header"></div>
+<body>
+  <div id="header"></div>
 
-    <link href="css/style-login.css" rel="stylesheet" />
+  <link href="css/style-login.css" rel="stylesheet" />
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-          <div class="card card-signin my-5">
-            <div class="card-body">
-              <h5 class="card-title text-center">Login</h5>
-              <form id="form" class="form-signin">
-                <div class="form-label-group">
-                  <input
-                    type="email"
-                    id="inputEmail"
-                    class="form-control"
-                    placeholder="Email address"
-                    required
-                    autofocus
-                  />
-                  <label for="inputEmail">Email address</label>
-                </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Login</h5>
+            <form id="form" class="form-signin">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required
+                  autofocus />
+                <label for="inputEmail">Email address</label>
+              </div>
 
-                <div class="form-label-group">
-                  <input
-                    type="password"
-                    id="inputPassword"
-                    class="form-control"
-                    placeholder="Password"
-                    required
-                  />
-                  <label for="inputPassword">Password</label>
-                </div>
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required />
+                <label for="inputPassword">Password</label>
+              </div>
 
-                <div class="custom-control custom-checkbox mb-3">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customCheck1"
-                  />
-                  <label class="custom-control-label" for="customCheck1"
-                    >Remember password</label
-                  >
-                </div>
-                <button
-                  id="loginBtn"
-                  style="background-color: #433535eb"
-                  class="btn btn-lg btn-primary btn-block text-uppercase"
-                  type="submit"
-                >
-                  Login
-                </button>
-                <button
-                  id="signUpBtn"
-                  style="background-color: #433535eb"
-                  class="btn btn-lg btn-primary btn-block text-uppercase"
-                >
-                  Don't have an account? Sign Up Now!
-                </button>
-              </form>
-            </div>
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" />
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button id="loginBtn" style="background-color: #433535eb"
+                class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
+                Login
+              </button>
+              <button id="signUpBtn" style="background-color: #433535eb"
+                class="btn btn-lg btn-primary btn-block text-uppercase">
+                Don't have an account? Sign Up Now!
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="scripts/login.js"></script>
-  </body>
+  <script src="scripts/login.js"></script>
+</body>
+
 </html>
