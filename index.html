@@ -16,7 +16,7 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-  <script src="scripts/jquery-3.4.1.min.js"></script>
+  <script src="scripts/jquery-3.4.1.js"></script>
   <script>
     $(function () {
       $("#header").load("header.html", function () {
@@ -25,6 +25,7 @@
         let homeTab = document.getElementById("home");
         let aboutTab = document.getElementById("about");
         let orderTab = document.getElementById("order");
+        let contactUsTab = document.getElementById("contact");
         let headSection = document.getElementById("headSection");
         let aboutSection = document.getElementById("aboutSection");
         let productsSection = document.getElementById("productsSection");
@@ -37,15 +38,15 @@
 
         const aboutTop = aboutSection.offsetTop;
         const headerHeight = headerDiv.getBoundingClientRect().height;
-        const productsSectionTop =
-          headSection.getBoundingClientRect().height +
-          aboutSection.getBoundingClientRect().height;
+        const productsSectionTop = headSection.getBoundingClientRect().height + aboutSection.getBoundingClientRect().height;
+        const contactUsSectionTop = productsSectionTop + productsSection.getBoundingClientRect().height;
 
         homeTab.addEventListener("click", event => {
           event.preventDefault();
           homeTab.classList.add("active");
           aboutTab.classList.remove("active");
           orderTab.classList.remove("active");
+          contactUsTab.classList.remove("active");
 
           $("html, body").animate(
             {
@@ -66,6 +67,7 @@
             aboutTab.classList.add("active");
             homeTab.classList.remove("active");
             orderTab.classList.remove("active");
+            contactUsTab.classList.remove("active");
 
             let hash = aboutTab.hash;
 
@@ -88,6 +90,7 @@
           orderTab.classList.add("active");
           homeTab.classList.remove("active");
           aboutTab.classList.remove("active");
+          contactUsTab.classList.remove("active");
 
           $("html, body").animate(
             {
@@ -96,6 +99,26 @@
             100,
             function () {
               window.location.offsetTop = productsSectionTop;
+              isAutoScroll = true;
+            }
+          );
+        });
+
+        contactUsTab.addEventListener("click", event => {
+          event.preventDefault();
+
+          contactUsTab.classList.add("active");
+          orderTab.classList.remove("active");
+          homeTab.classList.remove("active");
+          aboutTab.classList.remove("active");
+
+          $("html, body").animate(
+            {
+              scrollTop: contactUsSectionTop
+            },
+            100,
+            function () {
+              window.location.offsetTop = contactUsSectionTop;
               isAutoScroll = true;
             }
           );
@@ -110,35 +133,51 @@
               aboutTab.classList.add("active");
               homeTab.classList.remove("active");
               orderTab.classList.remove("active");
+              contactUsTab.classList.remove("active");
             }
           } else if (currentTopPos >= productsSectionTop - 100) {
             if (!isAutoScroll) {
               orderTab.classList.add("active");
               aboutTab.classList.remove("active");
               homeTab.classList.remove("active");
+              contactUsTab.classList.remove("active");
             }
+          } else if (currentTopPos >= contactUsSectionTop - 100) {
+            contactUsTab.classList.add("active");
+            orderTab.classList.remove("active");
+            aboutTab.classList.remove("active");
+            homeTab.classList.remove("active");
           } else {
             if (isAutoScroll) {
               if (currentTopPos < aboutTop - 100) {
                 homeTab.classList.add("active");
                 aboutTab.classList.remove("active");
                 orderTab.classList.remove("active");
+                contactUsTab.classList.remove("active");
                 isAutoScroll = false;
               } else if ((currentTopPos >= aboutTop - 100) && (currentTopPos < productsSectionTop - 100)) {
                 aboutTab.classList.add("active");
                 homeTab.classList.remove("active");
                 orderTab.classList.remove("active");
+                contactUsTab.classList.remove("active");
                 isAutoScroll = false;
               } else if (currentTopPos >= productsSectionTop - 100) {
                 orderTab.classList.add("active");
                 homeTab.classList.remove("active");
                 aboutTab.classList.remove("active");
+                contactUsTab.classList.remove("active");
                 isAutoScroll = false;
+              } else if (currentTopPos >= contactUsSectionTop - 100) {
+                contactUsTab.classList.add("active");
+                orderTab.classList.remove("active");
+                aboutTab.classList.remove("active");
+                homeTab.classList.remove("active");
               }
             } else {
               homeTab.classList.add("active");
               aboutTab.classList.remove("active");
               orderTab.classList.remove("active");
+              contactUsTab.classList.remove("active");
             }
           }
 
@@ -161,7 +200,7 @@
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
           Satisfying Sweet Cravings
         </h2>
-        <a href="order.html" class="btn btn-primary js-scroll-trigger">Order Now</a>
+        <a href="order.php" class="btn btn-primary js-scroll-trigger">Order Now</a>
       </div>
     </div>
   </header>
@@ -190,36 +229,20 @@
       <div class="card-deck">
         <div class="row mb-5">
           <div class="col-sm card bg-black">
-            <img src="images/cup2.jpg" alt="Cupcakes" class="img-fluid" />
-            <h3 class="card-title text-white text-center">Cupcakes</h3>
-          </div>
-
-          <div class="col-sm card bg-black">
-            <img src="images/mac2.jpg" alt="Macarons" class="img-fluid" />
-            <h3 class="card-title text-white text-center">Macarons</h3>
-          </div>
-
-          <div class="col-sm card bg-black">
-            <img src="images/brownies.jpg" alt="Brownies" class="img-fluid" />
-            <h3 class="card-title text-white text-center">Brownies</h3>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-deck">
-        <div class="row mb-5">
-          <div class="col-sm card bg-black">
-            <img src="images/cake2.jpg" alt="Cakes" class="img-fluid" />
+            <img src="images/cake2.jpg" alt="Cakes" class="img-fluid" style="margin-top: 10px;" />
             <h3 class="card-title text-white text-center">Cakes</h3>
           </div>
           <div class="col-sm card bg-black">
-            <img src="images/cookies.jpg" alt="Cookies" class="img-fluid" />
+            <img src="images/cookies.jpg" alt="Cookies" class="img-fluid" style="margin-top: 10px;" />
             <h3 class="card-title text-white text-center">Cookies</h3>
           </div>
-
           <div class="col-sm card bg-black">
-            <img src="images/cheesecake.jpg" alt="Cheesecake" class="img-fluid" />
-            <h3 class="card-title text-white text-center">Cheesecake</h3>
+            <img src="images/cup2.jpg" alt="Cupcakes" class="img-fluid" style="margin-top: 10px;" />
+            <h3 class="card-title text-white text-center">Cupcakes</h3>
+          </div>
+          <div class="col-sm card bg-black">
+            <img src="images/donut.jpg" alt="Donuts" class="img-fluid" style="margin-top: 10px;" />
+            <h3 class="card-title text-white text-center">Donuts</h3>
           </div>
         </div>
       </div>

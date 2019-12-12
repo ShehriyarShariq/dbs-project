@@ -3,15 +3,19 @@
 
 <head>
     <title>Bellaria - Order</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <script src="scripts/jquery-3.4.1.min.js"></script>
 
     <script>
-        $(function() {
-            $("#header").load("header.html", function() {
+        $(function () {
+            $("#header").load("header.html", function () {
                 let navBar = document.getElementById("mainNav");
                 let headerDiv = document.getElementById("header");
                 let orderTab = document.getElementById("order");
@@ -23,164 +27,23 @@
         });
     </script>
 
-    <style>
-        body {
-            overflow: auto;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .category {
-            color: gray;
-            text-align: center;
-        }
-        
-        .category-active {
-            padding-bottom: 6px;
-            border-bottom: 1px solid brown;
-            font-weight: bold;
-            color: black;
-        }
-        
-        .order-body {
-            width: 90%;
-            height: 100vh;
-            margin: 0 auto;
-        }
-        
-        .cart {
-            width: 40%;
-            position: fixed;
-            right: 1%;
-            height: 100vh;
-            box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.12)
-        }
-        
-        .upper-header {
-            width: 60%;
-            height: auto;
-            position: fixed;
-            list-style: none;
-            padding-top: 20px;
-            font-size: 22px;
-        }
-        
-        .checkout {
-            width: 100%;
-            margin-top: 20px;
-        }
-        
-        .head {
-            margin-top: 10%;
-            color: #663b3f;
-        }
-        
-        .head i {
-            font-size: 10px;
-            margin: 0 7px;
-        }
-        
-        .product-list {
-            list-style-type: none;
-            margin-top: 5%;
-        }
-        
-        .product-list li {
-            font-size: 20px;
-            color: black;
-        }
-        
-        .product-list i {
-            padding: 5px;
-            margin-left: 20px;
-            background-color: #663b3f;
-            color: white;
-            font-size: 20px;
-        }
-        
-        .line {
-            border-top: 3px solid #663b3f;
-        }
-        
-        .product-list span {
-            margin-right: 10%;
-            float: right;
-            font-size: 16px;
-            color: gray;
-        }
-        
-        .pop-up-plus {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 999;
-        }
-        
-        .pop-up-plus .row {
-            box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.12);
-            padding: 10px 0;
-        }
-        
-        .pop-up-plus .row .col-3 {
-            align-items: center;
-            justify-content: space-around;
-        }
-        
-        .pop-up-plus .row .col-9 button {
-            width: 90%;
-        }
-        
-        .pop-up-details {
-            background-color: white;
-            width: 45vw;
-            height: auto;
-            margin-top: 2%;
-            overflow: auto;
-        }
-        
-        .toppings {
-            list-style-type: none;
-        }
-        
-        .toppings li {
-            text-align: left;
-        }
-        
-        .toppings span {
-            float: right;
-            margin-right: 10%;
-        }
-        
-        .pop-up-plus h3 {
-            justify-content: space-around;
-        }
-        
-        .pop-up-plus .weight-cake {
-            text-align: left;
-        }
-        
-        .pop-up-plus .fa-times {
-            float: right;
-            position: fixed;
-            right: 28%;
-            color: gray;
-        }
-    </style>
-
 </head>
 
 <body id="page-top">
-    <!-- <div id="header"></div> -->
+    <div id="header"></div>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/order.css">
 
     <section class="pop-up-plus d-none">
         <i class="fa fa-times fa-2x"></i>
         <div class="container text-center pop-up-details pt-5">
-            <h3 class="d-flex"><span id="product-name">Chocolate Mousse</span><span id="product-price">PKR 990</span></h3> <br>
+            <h3 class="d-flex"><span id="product-name">Chocolate Mousse</span><span id="product-price">PKR 990</span>
+            </h3> <br>
             <hr class="line">
-            <h5 class="weight-cake"><span class="mr-5 pr-5">Ponds: </span><span class="ml-5 pl-5"></span><i class="fa fa-minus mr-3" id="pound-d"></i><span id="pound-cake">1</span><i id="pound-i" class="fa fa-plus ml-3"></i></span>
+            <h5 class="weight-cake"><span class="mr-5 pr-5">Pounds: </span><span class="ml-5 pl-5"></span><i
+                    class="fa fa-minus mr-3" id="pound-d"></i><span id="pound-cake">1</span><i id="pound-i"
+                    class="fa fa-plus ml-3"></i></span>
             </h5>
             <hr>
             <h5 class="text-left mb-4">Choose toppings (if any)</h5>
@@ -194,7 +57,8 @@
             <h5 class="text-left">Special Instructions (if any)</h5>
             <textarea class="mt-2 mb-5 p-3" rows="4" cols="68" placeholder="E.g No butter"></textarea> <br>
             <div class="row">
-                <div class="col-3 d-flex"><i class="fa fa-minus" id="qty-d"></i><span id="qty">1</span><i class="fa fa-plus" id="qty-i"></i></div>
+                <div class="col-3 d-flex"><i class="fa fa-minus" id="qty-d"></i><span id="qty">1</span><i
+                        class="fa fa-plus" id="qty-i"></i></div>
                 <div class="col-9"><button class="btn btn-primary">add to cart</button></div>
             </div>
         </div>
@@ -220,7 +84,8 @@
             </div>
             <div class="col-4 cart pt-3">
                 <h4 class="text-center">Your Order - Bellaria</h4> <br>
-                <p class="text-justify text-center ">You haven't added anything to your cart yet! Start adding to your cart
+                <p class="text-justify text-center ">You haven't added anything to your cart yet! Start adding to your
+                    cart
                 </p> <br>
                 <hr>
                 <br>
@@ -257,7 +122,9 @@
         </div>
         <div class="row">
             <div class="col-8">
-                <h4 class="head text-center"><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i>Choose your cuisine<i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i>
+                <h4 class="head text-center"><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle"
+                        aria-hidden="true"></i>Choose your cuisine<i class="fa fa-circle" aria-hidden="true"></i><i
+                        class="fa fa-circle" aria-hidden="true"></i>
                 </h4> <br>
                 <hr class="line">
             </div>
@@ -287,33 +154,33 @@
 
 
     <script>
-        $('.product-list').on("click", "li", function() {
+        $('.product-list').on("click", "li", function () {
             $('.pop-up-plus').removeClass('d-none');
             var str = $(this).html();
             $('#product-name').text(str.slice(0, str.indexOf('<')));
             $('#product-price').text(str.slice(str.indexOf('>') + 6, str.indexOf('<i')));
         });
-        $('#qty-d').click(function() {
+        $('#qty-d').click(function () {
             var val = parseInt($('#qty').html());
             if (val > 1) {
                 $('#qty').text(--val);
             }
         });
-        $('#qty-i').click(function() {
+        $('#qty-i').click(function () {
             var val = parseInt($('#qty').html());
             $('#qty').text(++val);
         });
-        $('#pound-d').click(function() {
+        $('#pound-d').click(function () {
             var val = parseInt($('#pound-cake').html());
             if (val > 1) {
                 $('#pound-cake').text(--val);
             }
         });
-        $('#pound-i').click(function() {
+        $('#pound-i').click(function () {
             var val = parseInt($('#pound-cake').html());
             $('#pound-cake').text(++val);
         });
-        $('.fa-times').click(function() {
+        $('.fa-times').click(function () {
             $('.pop-up-plus').addClass('d-none');
         });
     </script>

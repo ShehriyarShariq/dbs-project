@@ -72,7 +72,57 @@
     </div>
   </div>
 
-  <script src="scripts/login.js"></script>
+  <script>
+    let form = document.getElementById("form");
+    let signUpBtn = document.getElementById("signUpBtn");
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+
+      let data = {
+        email: $("#inputEmail").val(),
+        pass: $("#inputPassword").val(),
+        from: "login"
+      }
+
+      $.ajax({
+        type: "POST",
+        url: './includes/auth.php',
+        data: data,
+        dataType: 'JSON',
+        success: function (response) {
+          if (response.result === "success") {
+            window.localStorage.setItem("email", $("#inputEmail").val());
+            window.localStorage.setItem("pass", $("#inputPassword").val());
+
+            let msg = (response.message).split("~_~");
+
+            window.localStorage.setItem("id", msg[0])
+            window.localStorage.setItem("name", msg[1]);
+            window.localStorage.setItem("isAdmin", msg[2]);
+
+            if (msg[2] == "false") {
+              window.location.replace("index.html");
+            } else {
+              window.location.replace("admin.html");
+            }
+
+          } else if (response.result === "failure") {
+            console.log(response.message);
+          }
+        }, error: function () {
+          console.log("Some Error Occurred!");
+        }
+      });
+
+
+    });
+
+    signUpBtn.addEventListener("click", event => {
+      location.href = "sign-up.html";
+    });
+
+  </script>
 </body>
 
 </html>
