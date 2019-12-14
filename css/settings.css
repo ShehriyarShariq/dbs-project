@@ -1,0 +1,67 @@
+body {
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.change-password,
+.address-section {
+    border: 2px solid gray;
+    padding: 20px;
+}
+
+.form-group input {
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+hr {
+    border-top: 2px solid #663b3f;
+}
+
+.address-content {
+    list-style: none;
+    font-size: 20px;
+    border: 2px dashed #663b3f;
+    padding: 15px;
+}
+
+.fa-pencil {
+    float: right;
+}
+
+#add-another-address {
+    margin-top: 20px;
+    width: 50%;
+}
+
+#address-edit-popup,
+#new-address-popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+#address-edit-popup .container,
+#new-address-popup .container {
+    background-color: white;
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#edit-address,
+#add-new-address {
+    width: 90%;
+}
+
+.fa-times {
+    float: right;
+    position: fixed;
+    right: 25%;
+    color: red;
+}

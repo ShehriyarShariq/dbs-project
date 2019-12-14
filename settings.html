@@ -24,17 +24,70 @@
 </head>
 
 <body id="page-top">
+
     <div id="header"></div>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/settings.css">
 
-    <form>
-        <fieldset>
-            <legend>Personalia:</legend>
-            Name: <input type="text"><br> Email: <input type="text"><br> Date of birth: <input type="text">
-        </fieldset>
-    </form>
+    <section id="address-edit-popup" class="d-none">
+        <i class="fa fa-times fa-2x"></i>
+        <div class="container my-5 py-5">
+            <h4 class="text-center my-4 pt-3">Edit Address</h4>
+            <div>
+                <textarea name="edited-address" id="edit-address" cols="30" rows="10"></textarea> <br> <br>
+                <input style="width: 50%" type="submit" class="btn btn-primary" id="update-address" value="update address">
+            </div>
+        </div>
+    </section>
 
+    <section id="new-address-popup" class="d-none">
+        <i class="fa fa-times fa-2x"></i>
+        <div class="container my-5 py-5">
+            <h4 class="text-center my-4 pt-3">Add New Address</h4>
+            <div>
+                <textarea name="new-address" id="add-new-address" cols="30" rows="10"></textarea> <br> <br>
+                <input style="width: 50%" type="submit" class="btn btn-primary" id="add-address" value="add new address">
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <form action="" class="change-password">
+            <h4>Change Passowrd</h4>
+            <hr>
+            <div class="form-group">
+                <input type="password" placeholder="Current Password">
+                <input type="password" placeholder="New Passowrd">
+                <input type="password" placeholder="Confirm New Password">
+                <input type="submit" class="btn btn-primary" value="change passowrd">
+            </div>
+        </form>
+
+        <div class="address-section my-5">
+            <h3 class="mb-5">Your Address</h3>
+            <ul class="address-content">
+                <li>Emporium Mall Road Lhr<i class="fa fa-pencil"></i></li>
+                <hr>
+            </ul>
+            <button id="add-another-address" class="btn btn-primary">Add new address</button>
+        </div>
+
+    </div>
+
+    <script>
+        $('.address-content').on('click', 'li', function() {
+            $('#address-edit-popup').removeClass('d-none');
+            $('#edit-address').val($(this).text());
+        });
+        $('.fa-times').click(function() {
+            $('#address-edit-popup').addClass('d-none');
+            $('#new-address-popup').addClass('d-none');
+        });
+        $('#add-another-address').click(function() {
+            $('#new-address-popup').removeClass('d-none');
+        });
+    </script>
 </body>
 
 </html>
