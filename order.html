@@ -31,6 +31,39 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/order.css">
 
+    <section class="d-none checkout-popup py-5">
+        <i class="fa fa-times fa-2x"></i>
+        <div class="confirm-order text-center py-5">
+            <h2 class="text-center text-uppercase bold">confirm order</h2>
+            <hr class="line">
+            <div>
+                <h4>Items</h4>
+                <ul class="item-list">
+                    <li class="d-flex justify-content-around"><span>2 Red Velvet</span>| <span id="toppingOnItem">Topping: None</span>|<span>PKR 800</span></li>
+                </ul>
+                <hr>
+            </div>
+            <div>
+                <h4>Choose Address</h4>
+                <select id="chooseAddress">
+                    <option>None</option>
+                </select>
+                <i id="new-address-add" class="fa fa-plus"></i>
+                <hr>
+            </div>
+            <div>
+                <h4>Cash on Delivery</h4>
+                <hr>
+            </div>
+            <div>
+                <h4>Total Amount</h4>
+                <h5>PKR 1800</h5>
+                <hr>
+            </div>
+            <button style="width: 80%" class="btn btn-primary mt-3">place order</button>
+        </div>
+    </section>
+
     <section class="pop-up-plus d-none">
         <i class="fa fa-times fa-2x"></i>
         <div class="container text-center pop-up-details pt-5">
@@ -92,8 +125,6 @@
                     <li>Red Velvet<span>from PKR 900<i class="fa fa-plus"></i></span></li>
                     <hr>
                 </ul>
-
-
             </div>
             <div class="col-4 cart pt-3">
                 <h4 class="text-center">Your Order - Bellaria</h4> <br>
@@ -127,7 +158,7 @@
                 </div>
                 <div class="row ">
                     <div class="col-12 ">
-                        <button class="btn btn-primary checkout ">checkout</button>
+                        <button id="checkoutBtn" class="btn btn-primary checkout">checkout</button>
                     </div>
                 </div>
             </div>
@@ -164,9 +195,18 @@
             var val = parseInt($('#pound-cake').html());
             $('#pound-cake').text(++val);
         });
+        $('#checkoutBtn').click(function() {
+            // make sure its not empty
+            $('.checkout-popup').removeClass('d-none');
+        });
         $('.fa-times').click(function() {
             $('.pop-up-plus').addClass('d-none');
+            $('.checkout-popup').addClass('d-none');
         });
+        $('#new-address-add').click(function() {
+            console.log('add new address');
+            // take him to settings to add new address and save the state of his orders
+        })
     </script>
 
 </body>

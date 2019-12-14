@@ -106,3 +106,7 @@ textarea {
     list-style: none;
     font-size: 20px;
 }
+
+.item-list span {
+    float: right;
+}

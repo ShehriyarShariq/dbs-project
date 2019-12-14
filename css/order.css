@@ -83,7 +83,8 @@ body {
     color: gray;
 }
 
-.pop-up-plus {
+.pop-up-plus,
+.checkout-popup {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -105,10 +106,12 @@ body {
     width: 90%;
 }
 
-.pop-up-details {
+.pop-up-details,
+.confirm-order {
     background-color: white;
     width: 45vw;
     height: auto;
+    margin: 0 auto;
     margin-top: 2%;
     overflow: auto;
 }
@@ -134,9 +137,26 @@ body {
     text-align: left;
 }
 
-.pop-up-plus .fa-times {
+.fa-times {
     float: right;
     position: fixed;
     right: 28%;
     color: red;
+}
+
+.item-list {
+    list-style: none;
+}
+
+.item-list li {
+    width: 100%;
+}
+
+#new-address-add {
+    float: right;
+    margin-right: 50px;
+}
+
+select {
+    width: 50%;
 }
