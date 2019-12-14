@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.cust-orders {
+    list-style: none;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.total-amount {
+    float: right;
+}
+
+.cust-orders li {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+hr {
+    border-color: black;
+}
+
+.rate {
+    background-color: #663b3f;
+    height: 30px;
+    margin-right: 20px;
+    text-align: center;
+    color: white;
+    width: 0;
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    opacity: 0;
+}
+
+li:hover .rate {
+    width: 40px;
+    opacity: 1.0;
+}
+
+#order-rating,
+#order-detail-popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+.rating-div,
+.order-detail-div {
+    background-color: white;
+    width: 50%;
+    height: auto;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.checked {
+    color: orange;
+}
+
+.rate-box span:hover {
+    color: orange;
+}
+
+.rate-box {
+    display: inline-block;
+    direction: rtl;
+}
+
+.b1:hover~span {
+    color: orange;
+}
+
+.b2:hover~span {
+    color: orange;
+}
+
+.b3:hover~span {
+    color: orange;
+}
+
+.b4:hover~span {
+    color: orange;
+}
+
+.b5:hover~span {
+    color: orange;
+}
+
+textarea {
+    width: 80%;
+}
+
+.fa-times {
+    float: right;
+    position: fixed;
+    right: 25%;
+    color: red;
+}
+
+.products {
+    list-style: none;
+    font-size: 20px;
+}
