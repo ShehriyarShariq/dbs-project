@@ -51,7 +51,7 @@
                 if($checkCustCredQueryResultCheck == 0){
                         $createNewCustomerQuery = "INSERT INTO customer (name, email, password, phone_num, birth_date, points) VALUES ($name, $email, $pass, $phoneNum, $bday, 0);";
                         $isCreatedCust = mysqli_query($connect, $createNewCustomerQuery);
-                        if($isCreatedCust){
+                        if($isCreatedCust === true){
                                 signUpSuccess($connect);
                         }
                 } else {

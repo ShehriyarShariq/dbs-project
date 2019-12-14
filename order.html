@@ -67,18 +67,18 @@
     <section class="order-body">
         <div class="row">
             <div class="col-8">
-                <ul class="row upper-header d-flex justify-content-around">
-                    <li class="col-3 category category-active">
-                        Cakes
+                <ul class="row nav nav-tabs upper-header d-flex justify-content-around">
+                    <li class="col-3 active category category-active">
+                        <a data-toggle="tab" href="#tabContent">Cakes</a>
                     </li>
                     <li class="col-3 category">
-                        Cupcakes
+                        <a data-toggle="tab" href="#tabContent">Cupcakes</a>
                     </li>
                     <li class="col-3 category">
-                        Cookies
+                        <a data-toggle="tab" href="#tabContent">Cookies</a>
                     </li>
                     <li class="col-3 category">
-                        Donuts
+                        <a data-toggle="tab" href="#tabContent">Donuts</a>
                     </li>
                 </ul>
             </div>
@@ -130,10 +130,9 @@
             </div>
         </div>
 
-
-        <div class="row">
-            <div class="col-8 ">
-                <ul class="product-list">
+        <div class="row tab-content">
+            <div id="tabContent" class="col-8 tab-pane">
+                <ul class="product-list ">
                     <li>Chocolate Mousse<span>from PKR 990<i class="fa fa-plus"></i></span></li>
                     <hr>
                     <li>Chocolate Fudge<span>from PKR 880<i class="fa fa-plus"></i></span></li>
@@ -151,9 +150,8 @@
 
     </section>
 
-
-
     <script>
+
         $('.product-list').on("click", "li", function () {
             $('.pop-up-plus').removeClass('d-none');
             var str = $(this).html();

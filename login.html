@@ -65,6 +65,7 @@
                 class="btn btn-lg btn-primary btn-block text-uppercase">
                 Don't have an account? Sign Up Now!
               </button>
+
             </form>
           </div>
         </div>
@@ -75,6 +76,10 @@
   <script>
     let form = document.getElementById("form");
     let signUpBtn = document.getElementById("signUpBtn");
+
+    signUpBtn.addEventListener("click", event => {
+      event.preventDefault();
+    });
 
     form.addEventListener("submit", event => {
       event.preventDefault();
@@ -104,7 +109,7 @@
             if (msg[2] == "false") {
               window.location.replace("index.html");
             } else {
-              window.location.replace("admin.html");
+              window.location.replace("admin.php");
             }
 
           } else if (response.result === "failure") {

@@ -38,6 +38,7 @@
 
         const aboutTop = aboutSection.offsetTop;
         const headerHeight = headerDiv.getBoundingClientRect().height;
+        const aboutSectionTop = headerHeight + headSection.getBoundingClientRect().height;
         const productsSectionTop = headSection.getBoundingClientRect().height + aboutSection.getBoundingClientRect().height;
         const contactUsSectionTop = productsSectionTop + productsSection.getBoundingClientRect().height;
 
@@ -73,11 +74,11 @@
 
             $("html, body").animate(
               {
-                scrollTop: $(hash).offset().top
+                scrollTop: aboutSectionTop
               },
               100,
               function () {
-                window.location.hash = hash;
+                window.location.offsetTop = aboutSectionTop;
                 isAutoScroll = true;
               }
             );
