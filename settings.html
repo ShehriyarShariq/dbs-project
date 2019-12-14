@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $(function() {
+            $("#header").load("header.html", function() {
+                let navBar = document.getElementById("mainNav");
+                let headerDiv = document.getElementById("header");
+                let orderTab = document.getElementById("order");
+
+                headerDiv.style.height = navBar.getBoundingClientRect().height + "px";
+
+                orderTab.classList.add("active");
+            });
+        });
+    </script>
+</head>
+
+<body id="page-top">
+    <div id="header"></div>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <form>
+        <fieldset>
+            <legend>Personalia:</legend>
+            Name: <input type="text"><br> Email: <input type="text"><br> Date of birth: <input type="text">
+        </fieldset>
+    </form>
+
+</body>
+
+</html>

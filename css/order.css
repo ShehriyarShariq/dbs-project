@@ -1,142 +1,142 @@
 body {
-        overflow: auto;
-        margin: 0;
-        padding: 0;
-    }
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
 
-    .category {
-        color: gray;
-        text-align: center;
-    }
+.category {
+    color: gray;
+    text-align: center;
+}
 
-    .category-active {
-        padding-bottom: 6px;
-        border-bottom: 1px solid brown;
-        font-weight: bold;
-        color: black;
-    }
+.category-active {
+    padding-bottom: 6px;
+    border-bottom: 1px solid brown;
+    font-weight: bold;
+    color: black;
+}
 
-    .order-body {
-        width: 90%;
-        height: 100vh;
-        margin: 0 auto;
-    }
+.order-body {
+    width: 90%;
+    height: 100vh;
+    margin: 0 auto;
+}
 
-    .cart {
-        width: 40%;
-        position: fixed;
-        right: 1%;
-        height: 100vh;
-        box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.12)
-    }
+.cart {
+    width: 40%;
+    position: fixed;
+    right: 1%;
+    height: 100vh;
+    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.12)
+}
 
-    .upper-header {
-        width: 60%;
-        height: auto;
-        position: fixed;
-        list-style: none;
-        padding-top: 20px;
-        font-size: 22px;
-    }
+.upper-header {
+    width: 60%;
+    height: auto;
+    position: fixed;
+    list-style: none;
+    padding-top: 20px;
+    font-size: 22px;
+}
 
-    .checkout {
-        width: 100%;
-        margin-top: 20px;
-    }
+.checkout {
+    width: 100%;
+    margin-top: 20px;
+}
 
-    .head {
-        margin-top: 10%;
-        color: #663b3f;
-    }
+.head {
+    margin-top: 10%;
+    color: #663b3f;
+}
 
-    .head i {
-        font-size: 10px;
-        margin: 0 7px;
-    }
+.head i {
+    font-size: 10px;
+    margin: 0 7px;
+}
 
-    .product-list {
-        list-style-type: none;
-        margin-top: 5%;
-    }
+.product-list {
+    list-style-type: none;
+    margin-top: 5%;
+}
 
-    .product-list li {
-        font-size: 20px;
-        color: black;
-    }
+.product-list li {
+    font-size: 20px;
+    color: black;
+}
 
-    .product-list i {
-        padding: 5px;
-        margin-left: 20px;
-        background-color: #663b3f;
-        color: white;
-        font-size: 20px;
-    }
+.product-list i {
+    padding: 5px;
+    margin-left: 20px;
+    background-color: #663b3f;
+    color: white;
+    font-size: 20px;
+}
 
-    .line {
-        border-top: 3px solid #663b3f;
-    }
+.line {
+    border-top: 3px solid #663b3f;
+}
 
-    .product-list span {
-        margin-right: 10%;
-        float: right;
-        font-size: 16px;
-        color: gray;
-    }
+.product-list span {
+    margin-right: 10%;
+    float: right;
+    font-size: 16px;
+    color: gray;
+}
 
-    .pop-up-plus {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 999;
-    }
+.pop-up-plus {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
 
-    .pop-up-plus .row {
-        box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.12);
-        padding: 10px 0;
-    }
+.pop-up-plus .row {
+    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.12);
+    padding: 10px 0;
+}
 
-    .pop-up-plus .row .col-3 {
-        align-items: center;
-        justify-content: space-around;
-    }
+.pop-up-plus .row .col-3 {
+    align-items: center;
+    justify-content: space-around;
+}
 
-    .pop-up-plus .row .col-9 button {
-        width: 90%;
-    }
+.pop-up-plus .row .col-9 button {
+    width: 90%;
+}
 
-    .pop-up-details {
-        background-color: white;
-        width: 45vw;
-        height: auto;
-        margin-top: 2%;
-        overflow: auto;
-    }
+.pop-up-details {
+    background-color: white;
+    width: 45vw;
+    height: auto;
+    margin-top: 2%;
+    overflow: auto;
+}
 
-    .toppings {
-        list-style-type: none;
-    }
+.toppings {
+    list-style-type: none;
+}
 
-    .toppings li {
-        text-align: left;
-    }
+.toppings li {
+    text-align: left;
+}
 
-    .toppings span {
-        float: right;
-        margin-right: 10%;
-    }
+.toppings span {
+    float: right;
+    margin-right: 10%;
+}
 
-    .pop-up-plus h3 {
-        justify-content: space-around;
-    }
+.pop-up-plus h3 {
+    justify-content: space-around;
+}
 
-    .pop-up-plus .weight-cake {
-        text-align: left;
-    }
+.pop-up-plus .weight-cake {
+    text-align: left;
+}
 
-    .pop-up-plus .fa-times {
-        float: right;
-        position: fixed;
-        right: 28%;
-        color: gray;
-    }
+.pop-up-plus .fa-times {
+    float: right;
+    position: fixed;
+    right: 28%;
+    color: red;
+}

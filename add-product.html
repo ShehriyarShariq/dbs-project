@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $(function() {
+            $("#header").load("header.html", function() {
+                let navBar = document.getElementById("mainNav");
+                let headerDiv = document.getElementById("header");
+                let orderTab = document.getElementById("order");
+
+                headerDiv.style.height = navBar.getBoundingClientRect().height + "px";
+
+                orderTab.classList.add("active");
+            });
+        });
+    </script>
+</head>
+
+<body id="page-top">
+    <div id="header"></div>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/add-product.css">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-3">
+                <h4 class="text-center">Add new product</h4>
+                <hr>
+                <form>
+                    <div class="form-group" id="addNewProduct">
+                        <label for="productName">Product Name</label>
+                        <input type="text" id="productName"> <br> <br>
+                        <label for="prefix">Prefix</label>
+                        <input type="text" id="prefix">
+                        <input type="submit" class="btn btn-primary mt-4" value="add product">
+                    </div>
+                </form>
+            </div>
+            <div class="col-3">
+                <h4 class="text-center">Add new item</h4>
+                <hr>
+                <form>
+                    <div class="form-group" id="addNewItem">
+                        <label for="chooseProduct">Choose Product</label>
+                        <select class="form-control mb-4" id="chooseProduct">
+                            <option>Cake</option>
+                            <option>Cupcake</option>
+                            <option>Cookie</option>
+                            <option>Donut</option>
+                        </select>
+                        <label for="itemName">Item Name</label>
+                        <input type="text" id="itemName">
+                        <label for="rateItem">Rate (per piece/pound)</label>
+                        <input type="text" id="rateItem">
+                        <input type="submit" class="btn btn-primary mt-4" value="add item">
+                    </div>
+                </form>
+            </div>
+            <div class="col-3">
+                <h4 class="text-center">Add new topping</h4>
+                <hr>
+                <form>
+                    <div class="form-group" id="addNewTopping">
+                        <label for="toppingName">Topping Name</label>
+                        <input type="text" id="toppingName">
+                        <label for="rateTopping">Rate</label>
+                        <input type="text" id="rateTopping">
+                        <input type="submit" class="btn btn-primary mt-4" value="add topping">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="row my-5">
+            <div class="col-3">
+                <h4 class="text-center">Add new customer</h4>
+                <hr>
+                <form>
+                    <div class="form-group" id="addNewCustomer">
+                        <label for="customerName">Name</label>
+                        <input type="text" id="customerName" required>
+                        <label for="custEmail">Email</label>
+                        <input type="email" required>
+                        <label for="custPass">Password</label>
+                        <input type="password" id="custPass" required>
+                        <label for="custPhone">Phone</label>
+                        <input type="password" id="custPhone" required>
+                        <label for="custDOB">Birth Date</label>
+                        <input type="text" id="custDOB" required>
+                        <input type="submit" class="btn btn-primary mt-4" value="add new customer">
+                    </div>
+                </form>
+            </div>
+            <div class="col-3">
+                <h4 class="text-center">Add new driver</h4>
+                <hr>
+                <form>
+                    <div class="form-group" id="addNewDriver">
+                        <label for="driverName">Name</label>
+                        <input type="text" id="driverName" required>
+                        <label for="driverAge">Age</label>
+                        <input type="text" id="driverAge" required>
+                        <input type="submit" class="btn btn-primary mt-4" value="add new driver">
+                    </div>
+                </form>
+            </div>
+            <div class="col-3">
+                <h4 class="text-center">Add new admin</h4>
+                <hr>
+                <form>
+                    <div class="form-group" id="addNewAdmin">
+                        <label for="adminName">Name</label>
+                        <input type="text" id="adminName" required>
+                        <label for="adminEmail">Email</label>
+                        <input type="email" id="adminEmail" required>
+                        <label for="adminPass">Password</label>
+                        <input type="password" id="adminPass" required>
+                        <input type="submit" class="btn btn-primary mt-4" value="add new admin">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
