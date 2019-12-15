@@ -49,10 +49,20 @@
                 $checkCustCredQueryResultCheck = mysqli_num_rows($checkCustCredQueryResult);
 
                 if($checkCustCredQueryResultCheck == 0){
-                        $createNewCustomerQuery = "INSERT INTO customer (name, email, password, phone_num, birth_date, points) VALUES ($name, $email, $pass, $phoneNum, $bday, 0);";
+                        $createNewCustomerQuery = "INSERT INTO customer (name, email, password, phone_num, birth_date) VALUES ('$name', '$email', '$pass', '$phoneNum', '$bday');";
                         $isCreatedCust = mysqli_query($connect, $createNewCustomerQuery);
-                        if($isCreatedCust === true){
-                                signUpSuccess($connect);
+                        if($isCreatedCust){
+                                $getCustQuery = "SELECT * FROM customer WHERE email='$email' AND password='$pass';";
+                                $getCustQueryResult = mysqli_query($connect, $getCustQuery);
+                                $getCustQueryResultCheck = mysqli_num_rows($getCustQueryResult);
+
+                                if($getCustQueryResultCheck > 0){
+                                        $customerQuery = mysqli_fetch_assoc($getCustQueryResult);
+                                        
+                                        signUpSuccess($connect, $customerQuery['cust_id']."~_~".$customerQuery['name']."~_~false");
+                                }
+
+                                
                         }
                 } else {
                         signUpError($connect);
@@ -65,8 +75,8 @@
 		exit("");
         }
 
-        function signUpSuccess($connect){
-                $response = array("result" => "success", "message" => "Customer created successfully!");
+        function signUpSuccess($connect, $msg){
+                $response = array("result" => "success", "message" => "$msg");
 		echo json_encode($response);
 		exit("");
         }

@@ -111,13 +111,23 @@
             window.localStorage.setItem("email", $("#inputEmail").val());
             window.localStorage.setItem("pass", $("#inputPassword").val());
 
-            console.log("LOGIN SUCCESS!!");
+            let msg = (response.message).split("~_~");
+
+            window.localStorage.setItem("id", msg[0])
+            window.localStorage.setItem("name", msg[1]);
+            window.localStorage.setItem("isAdmin", msg[2]);
+
+            if (msg[2] == "false") {
+              window.location.replace("index.html");
+            } else {
+              window.location.replace("admin.php");
+            }
 
           } else if (response.result === "failure") {
             console.log(response.message);
           }
-        }, error: function () {
-          console.log("Some Error Occurred!");
+        }, error: function (xhr, status, error) {
+          console.log(xhr.responseText);
         }
       });
 
