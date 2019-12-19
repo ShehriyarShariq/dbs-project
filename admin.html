@@ -33,7 +33,8 @@
             <h4 class="text-center mt-3 text-uppercase">Available <span id="tableName"></span></h4>
             <hr>
             <ul class="dataFromDB">
-                <li></li>
+                <li><span class="delete"><i class="fa fa-trash"></i></span>Cake</li>
+                <li><span class="delete"><i class="fa fa-trash"></i></span>Cupcake</li>
             </ul>
         </div>
     </section>
@@ -169,6 +170,10 @@
         $('.btn-showAvailable').click(function() {
             $('#tableName').text($(this).parent().children(':first-child').text().slice(8));
             $('.popup-available').removeClass('d-none');
+        });
+
+        $('.dataFromDB').on('click', '.delete', function() {
+            console.log("delete");
         });
 
         let main = document.getElementById("main");

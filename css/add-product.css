@@ -40,3 +40,24 @@ hr {
     right: 28%;
     color: red;
 }
+
+.dataFromDB {
+    list-style: none;
+}
+
+.delete {
+    background-color: #663b3f;
+    height: 30px;
+    margin-right: 20px;
+    text-align: center;
+    color: white;
+    width: 0;
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    opacity: 0;
+}
+
+li:hover .delete {
+    width: 40px;
+    opacity: 1.0;
+}
