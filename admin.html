@@ -79,10 +79,6 @@
                                                 <label for="chooseProduct">Choose Product</label>
                                                 <select class="form-control mb-4" id="chooseProduct">
                                                         <option>None</option>
-                                                        <option>Cake</option>
-                                                        <option>Cupcake</option>
-                                                        <option>Cookie</option>
-                                                        <option>Donut</option>
                                                 </select>
                                                 <label for="itemName">Item Name</label>
                                                 <input type="text" id="itemName" required>
@@ -176,6 +172,324 @@
 
                 let productItemSpinner = document.getElementById("chooseProduct");
 
+                function loadAllProducts(loadAll) {
+                        let data = {
+                                allData: loadAll,
+                                from: "loadProducts",
+                                isLoad: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+                                                productItemSpinner.innerHTML = "";
+                                                const noneOption = document.createElement("option");
+                                                noneOption.text = "None";
+                                                productItemSpinner.add(noneOption)
+
+                                                const allProducts = response.message;
+                                                for (var i = 0; i < allProducts.length; i++) {
+                                                        const option = document.createElement("option");
+                                                        option.text = allProducts[i];
+                                                        productItemSpinner.add(option);
+                                                }
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                function loadAllItems() {
+                        const selectedProduct = productItemSpinner.options[productItemSpinner.selectedIndex].value;
+                        if (selectedProduct != "None") {
+                                let data = {
+                                        tableName: selectedProduct.toLowerCase(),
+                                        from: "loadItems",
+                                        isLoad: true
+                                };
+
+                                $.ajax({
+                                        type: "POST",
+                                        url: './includes/admin_commands.php',
+                                        data: data,
+                                        dataType: 'JSON',
+                                        success: function (response) {
+                                                if (response.result === "success") {
+                                                        console.log(response.message);
+
+                                                } else if (response.result === "failure") {
+                                                        console.log(response.message);
+                                                }
+                                        }, error: function (xhr, status, error) {
+                                                console.log(xhr.responseText);
+                                        }
+                                });
+                        }
+                }
+
+                function loadAllToppings() {
+                        let data = {
+                                from: "loadToppings",
+                                isLoad: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                function loadAllCustomers() {
+                        let data = {
+                                from: "loadCustomers",
+                                isLoad: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                function loadAllDrivers() {
+                        let data = {
+                                from: "loadDrivers",
+                                isLoad: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                function loadAllAdmins() {
+                        let data = {
+                                from: "loadAdmins",
+                                isLoad: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                function deleteProduct(prefix) {
+                        let data = {
+                                prefix: prefix,
+                                from: "delProduct",
+                                isDelete: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+                                                loadAllProducts("false");
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                function deleteItem(tableName, id) {
+                        let data = {
+                                tableName: tableName,
+                                id: id,
+                                from: "delItem",
+                                isDelete: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                function deleteTopping(id) {
+                        let data = {
+                                id: id,
+                                from: "delTopping",
+                                isDelete: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                function deleteCustomer(prefix) {
+                        let data = {
+                                id: id,
+                                from: "delCustomer",
+                                isDelete: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                function deleteDriver(prefix) {
+                        let data = {
+                                id: id,
+                                from: "delDriver",
+                                isDelete: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                function deleteAdmin(prefix) {
+                        let data = {
+                                id: id,
+                                from: "delAdmin",
+                                isDelete: true
+                        };
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                }
+                        });
+                }
+
+                loadAllProducts("false");
+                loadAllItems();
+                loadAllToppings();
+                loadAllCustomers();
+                loadAllDrivers();
+                loadAllAdmins();
+
                 newProductForm.addEventListener("submit", event => {
                         event.preventDefault();
                         let data = {
@@ -192,41 +506,45 @@
                                 success: function (response) {
                                         if (response.result === "success") {
                                                 console.log(response.message);
-
+                                                loadAllProducts("false");
                                         } else if (response.result === "failure") {
                                                 console.log(response.message);
                                         }
-                                }, error: function () {
-                                        console.log("Some Error Occurred!");
+                                }, error: function (xhr, status, error) {
+                                        console.log(xhr.responseText);
                                 }
                         });
                 });
 
                 newItemForm.addEventListener("submit", event => {
                         event.preventDefault();
-                        let data = {
-                                productName: (productItemSpinner.options[productItemSpinner.selectedIndex].value).toLowerCase(),
-                                name: $("#itemName").val(),
-                                rate: $("#rateItem").val(),
-                                from: "newItem"
-                        }
-
-                        $.ajax({
-                                type: "POST",
-                                url: './includes/admin_commands.php',
-                                data: data,
-                                dataType: 'JSON',
-                                success: function (response) {
-                                        if (response.result === "success") {
-                                                console.log(response.message);
-
-                                        } else if (response.result === "failure") {
-                                                console.log(response.message);
-                                        }
-                                }, error: function () {
-                                        console.log("Some Error Occurred!");
+                        if (productItemSpinner.options[productItemSpinner.selectedIndex].value != "None") {
+                                let data = {
+                                        productName: (productItemSpinner.options[productItemSpinner.selectedIndex].value).toLowerCase(),
+                                        name: $("#itemName").val(),
+                                        rate: $("#rateItem").val(),
+                                        from: "newItem"
                                 }
-                        });
+
+                                $.ajax({
+                                        type: "POST",
+                                        url: './includes/admin_commands.php',
+                                        data: data,
+                                        dataType: 'JSON',
+                                        success: function (response) {
+                                                if (response.result === "success") {
+                                                        console.log(response.message);
+
+                                                } else if (response.result === "failure") {
+                                                        console.log(response.message);
+                                                }
+                                        }, error: function () {
+                                                console.log("Some Error Occurred!");
+                                        }
+                                });
+                        } else {
+                                // Show error
+                        }
                 });
 
                 newToppingForm.addEventListener("submit", event => {
