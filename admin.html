@@ -11,13 +11,21 @@
         Bellaria
     </title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="scripts/jquery-3.4.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/add-product.css">
@@ -43,10 +51,12 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-shrink" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">BELLARIA</a>
-            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                                Menu
-                                <i class="fas fa-bars"></i>
-                        </button>
+            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="navbar-collapse collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
@@ -80,8 +90,8 @@
                     <div class="form-group" id="addNewItem">
                         <label for="chooseProduct">Choose Product</label>
                         <select class="form-control mb-4" id="chooseProduct">
-                                                        <option>None</option>
-                                                </select>
+                            <option>None</option>
+                        </select>
                         <label for="itemName">Item Name</label>
                         <input type="text" id="itemName" required>
                         <label for="rateItem">Rate (per piece/pound)</label>
@@ -163,16 +173,16 @@
     </div>
 
     <script>
-        $('.fa-times').click(function() {
+        $('.fa-times').click(function () {
             $('.popup-available').addClass('d-none');
         });
 
-        $('.btn-showAvailable').click(function() {
+        $('.btn-showAvailable').click(function () {
             $('#tableName').text($(this).parent().children(':first-child').text().slice(8));
             $('.popup-available').removeClass('d-none');
         });
 
-        $('.dataFromDB').on('click', '.delete', function() {
+        $('.dataFromDB').on('click', '.delete', function () {
             console.log("delete");
         });
 
@@ -202,7 +212,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
                         productItemSpinner.innerHTML = "";
@@ -221,7 +231,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -241,7 +251,7 @@
                     url: './includes/admin_commands.php',
                     data: data,
                     dataType: 'JSON',
-                    success: function(response) {
+                    success: function (response) {
                         if (response.result === "success") {
                             console.log(response.message);
 
@@ -249,7 +259,7 @@
                             console.log(response.message);
                         }
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
                         console.log(xhr.responseText);
                     }
                 });
@@ -267,7 +277,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -275,7 +285,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -292,7 +302,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -300,7 +310,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -317,7 +327,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -325,7 +335,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -342,7 +352,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -350,7 +360,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -368,7 +378,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
                         loadAllProducts("false");
@@ -376,7 +386,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -395,7 +405,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -403,7 +413,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -421,7 +431,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -429,7 +439,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -447,7 +457,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -455,7 +465,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -473,7 +483,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -481,7 +491,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -499,7 +509,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -507,7 +517,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -533,7 +543,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
                         loadAllProducts("false");
@@ -541,7 +551,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                 }
             });
@@ -562,7 +572,7 @@
                     url: './includes/admin_commands.php',
                     data: data,
                     dataType: 'JSON',
-                    success: function(response) {
+                    success: function (response) {
                         if (response.result === "success") {
                             console.log(response.message);
 
@@ -570,7 +580,7 @@
                             console.log(response.message);
                         }
                     },
-                    error: function() {
+                    error: function () {
                         console.log("Some Error Occurred!");
                     }
                 });
@@ -592,7 +602,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -600,7 +610,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function() {
+                error: function () {
                     console.log("Some Error Occurred!");
                 }
             });
@@ -622,7 +632,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -630,7 +640,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function() {
+                error: function () {
                     console.log("Some Error Occurred!");
                 }
             });
@@ -649,7 +659,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -657,7 +667,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function() {
+                error: function () {
                     console.log("Some Error Occurred!");
                 }
             });
@@ -677,7 +687,7 @@
                 url: './includes/admin_commands.php',
                 data: data,
                 dataType: 'JSON',
-                success: function(response) {
+                success: function (response) {
                     if (response.result === "success") {
                         console.log(response.message);
 
@@ -685,7 +695,7 @@
                         console.log(response.message);
                     }
                 },
-                error: function() {
+                error: function () {
                     console.log("Some Error Occurred!");
                 }
             });
