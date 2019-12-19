@@ -93,7 +93,7 @@
     <section class="order-body">
         <div class="row">
             <div class="col-8">
-                <ul class="upper-header d-flex justify-content-around">
+                <ul id="tabs" class="upper-header d-flex justify-content-around">
                     <li class="active category category-active">
                         Cake
                     </li>
@@ -166,8 +166,15 @@
     </section>
 
     <script>
-        $('.upper-header').click(function() {
+        function getEventTarget(e) {
+            e = e || window.event;
+            return e.target || e.srcElement; 
+        }
+        
+        $('.upper-header').click( event => {
             // change tabs and content in tab pane
+            var target = getEventTarget(event);
+            console.log(target.innerText);
         });
         $('.product-list').on("click", "li", function() {
             $('.pop-up-plus').removeClass('d-none');

@@ -1,0 +1,361 @@
+<?php 
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8" />
+        <title>
+                Bellaria
+        </title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                crossorigin="anonymous" />
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+                integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+                crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script src="scripts/jquery-3.4.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/add-product.css">
+
+        <script src="scripts/jquery-3.4.1.js"></script>
+</head>
+
+<body id="page-top">
+        <!--Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-shrink" id="mainNav">
+                <div class="container">
+                        <a class="navbar-brand js-scroll-trigger" href="#page-top">BELLARIA</a>
+                        <button class="navbar-toggler navbar-toggler-right collapsed" type="button"
+                                data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                Menu
+                                <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="navbar-collapse collapse" id="navbarResponsive">
+                                <ul class="nav navbar-nav ml-auto">
+                                        <li class="nav-item">
+                                                <a id="logout" class="nav-link js-scroll-trigger" href="#">LogOut</a>
+                                        </li>
+                                </ul>
+                        </div>
+                </div>
+        </nav>
+
+        <div id="main" class="container">
+                <div class="row my-5">
+                        <div class="col-3">
+                                <h4 class="text-center">Add new product</h4>
+                                <hr>
+                                <form id="newProductForm">
+                                        <div class="form-group" id="addNewProduct">
+                                                <label for="productName">Product Name</label>
+                                                <input type="text" id="productName" required> <br> <br>
+                                                <label for="prefix">Prefix</label>
+                                                <input type="text" id="prefix" required>
+                                                <input type="submit" class="btn btn-primary mt-4" value="add product">
+                                        </div>
+                                </form>
+                        </div>
+                        <div class="col-3">
+                                <h4 class="text-center">Add new item</h4>
+                                <hr>
+                                <form id="newItemForm">
+                                        <div class="form-group" id="addNewItem">
+                                                <label for="chooseProduct">Choose Product</label>
+                                                <select class="form-control mb-4" id="chooseProduct">
+                                                        <option>None</option>
+                                                        <option>Cake</option>
+                                                        <option>Cupcake</option>
+                                                        <option>Cookie</option>
+                                                        <option>Donut</option>
+                                                </select>
+                                                <label for="itemName">Item Name</label>
+                                                <input type="text" id="itemName" required>
+                                                <label for="rateItem">Rate (per piece/pound)</label>
+                                                <input type="text" id="rateItem" required>
+                                                <input type="submit" class="btn btn-primary mt-4" value="add item">
+                                        </div>
+                                </form>
+                        </div>
+                        <div class="col-3">
+                                <h4 class="text-center">Add new topping</h4>
+                                <hr>
+                                <form id="newToppingForm">
+                                        <div class="form-group" id="addNewTopping">
+                                                <label for="toppingName">Topping Name</label>
+                                                <input type="text" id="toppingName" required>
+                                                <label for="rateTopping">Rate</label>
+                                                <input type="text" id="rateTopping" required>
+                                                <input type="submit" class="btn btn-primary mt-4" value="add topping">
+                                        </div>
+                                </form>
+                        </div>
+                </div>
+
+
+                <div class="row my-5">
+                        <div class="col-3">
+                                <h4 class="text-center">Add new customer</h4>
+                                <hr>
+                                <form id="newCustomerForm">
+                                        <div class="form-group" id="addNewCustomer">
+                                                <label for="customerName">Name</label>
+                                                <input type="text" id="customerName" required>
+                                                <label for="custEmail">Email</label>
+                                                <input type="email" id="customerEmail" required>
+                                                <label for="custPass">Password</label>
+                                                <input type="password" id="custPass" required>
+                                                <label for="custPhone">Phone</label>
+                                                <input type="password" id="custPhone" required>
+                                                <label for="custDOB">Birth Date</label>
+                                                <input type="text" id="custDOB" required>
+                                                <input type="submit" class="btn btn-primary mt-4"
+                                                        value="add new customer">
+                                        </div>
+                                </form>
+                        </div>
+                        <div class="col-3">
+                                <h4 class="text-center">Add new driver</h4>
+                                <hr>
+                                <form id="newDriverForm">
+                                        <div class="form-group" id="addNewDriver">
+                                                <label for="driverName">Name</label>
+                                                <input type="text" id="driverName" required>
+                                                <label for="driverAge">Age</label>
+                                                <input type="text" id="driverAge" required>
+                                                <input type="submit" class="btn btn-primary mt-4"
+                                                        value="add new driver">
+                                        </div>
+                                </form>
+                        </div>
+                        <div class="col-3">
+                                <h4 class="text-center">Add new admin</h4>
+                                <hr>
+                                <form id="newAdminForm">
+                                        <div class="form-group" id="addNewAdmin">
+                                                <label for="adminName">Name</label>
+                                                <input type="text" id="adminName" required>
+                                                <label for="adminEmail">Email</label>
+                                                <input type="email" id="adminEmail" required>
+                                                <label for="adminPass">Password</label>
+                                                <input type="password" id="adminPass" required>
+                                                <input type="submit" class="btn btn-primary mt-4" value="add new admin">
+                                        </div>
+                                </form>
+                        </div>
+                </div>
+        </div>
+
+        <script>
+                let main = document.getElementById("main");
+                let navBar = document.getElementById("mainNav");
+                let logoutBtn = document.getElementById("logout");
+
+                // All Forms
+                let newProductForm = document.getElementById("newProductForm");
+                let newItemForm = document.getElementById("newItemForm");
+                let newToppingForm = document.getElementById("newToppingForm");
+                let newCustomerForm = document.getElementById("newCustomerForm");
+                let newDriverForm = document.getElementById("newDriverForm");
+                let newAdminForm = document.getElementById("newAdminForm");
+
+                let productItemSpinner = document.getElementById("chooseProduct");
+
+                newProductForm.addEventListener("submit", event => {
+                        event.preventDefault();
+                        let data = {
+                                name: $("#productName").val(),
+                                prefix: $("#prefix").val(),
+                                from: "newProduct"
+                        }
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function () {
+                                        console.log("Some Error Occurred!");
+                                }
+                        });
+                });
+
+                newItemForm.addEventListener("submit", event => {
+                        event.preventDefault();
+                        let data = {
+                                productName: (productItemSpinner.options[productItemSpinner.selectedIndex].value).toLowerCase(),
+                                name: $("#itemName").val(),
+                                rate: $("#rateItem").val(),
+                                from: "newItem"
+                        }
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function () {
+                                        console.log("Some Error Occurred!");
+                                }
+                        });
+                });
+
+                newToppingForm.addEventListener("submit", event => {
+                        event.preventDefault();
+                        let data = {
+                                name: $("#toppingName").val(),
+                                rate: $("#rateTopping").val(),
+                                from: "newTopping"
+                        }
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function () {
+                                        console.log("Some Error Occurred!");
+                                }
+                        });
+                });
+
+                newCustomerForm.addEventListener("submit", event => {
+                        event.preventDefault();
+                        let data = {
+                                name: $("#customerName").val(),
+                                email: $("#customerEmail").val(),
+                                password: $("#custPass").val(),
+                                phone: $("#custPhone").val(),
+                                bday: $("#custDOB").val(),
+                                from: "newCustomer"
+                        }
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function () {
+                                        console.log("Some Error Occurred!");
+                                }
+                        });
+                });
+
+                newDriverForm.addEventListener("submit", event => {
+                        event.preventDefault();
+                        let data = {
+                                name: $("#driverName").val(),
+                                age: $("#driverAge").val(),
+                                from: "newDriver"
+                        }
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function () {
+                                        console.log("Some Error Occurred!");
+                                }
+                        });
+                });
+
+                newAdminForm.addEventListener("submit", event => {
+                        event.preventDefault();
+                        let data = {
+                                name: $("#adminName").val(),
+                                email: $("#adminEmail").val(),
+                                pass: $("#adminPass").val(),
+                                from: "newAdmin"
+                        }
+
+                        $.ajax({
+                                type: "POST",
+                                url: './includes/admin_commands.php',
+                                data: data,
+                                dataType: 'JSON',
+                                success: function (response) {
+                                        if (response.result === "success") {
+                                                console.log(response.message);
+
+                                        } else if (response.result === "failure") {
+                                                console.log(response.message);
+                                        }
+                                }, error: function () {
+                                        console.log("Some Error Occurred!");
+                                }
+                        });
+                });
+
+                main.style.marginTop = (navBar.getBoundingClientRect().height + 20) + "px";
+
+                logoutBtn.addEventListener("click", event => {
+                        event.preventDefault();
+
+                        window.localStorage.setItem("email", "");
+                        window.localStorage.setItem("pass", "");
+                        window.localStorage.setItem("id", "")
+                        window.localStorage.setItem("name", "");
+                        window.localStorage.setItem("isAdmin", "");
+
+                        window.location.replace("index.html");
+                });
+
+
+
+
+        </script>
+
+</body>
+
+</html>
