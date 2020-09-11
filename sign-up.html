@@ -1,84 +1,55 @@
-<!DOCTYPE html>
-<html>
-
 <head>
-  <title>BELLARIA - Login</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-
-  <script src="scripts/jquery-3.4.1.min.js"></script>
-  <script>
-    $(function () {
-      $("#header").load("header.html", function () {
-        let navBar = document.getElementById("mainNav");
-        let headerDiv = document.getElementById("header");
-        let loginTab = document.getElementById("loginOrNew");
-
-        headerDiv.style.height = navBar.getBoundingClientRect().height + "px";
-
-        loginTab.classList.add("active");
-      });
-    });
-  </script>
-</head>
-
-<body>
-  <div id="header"></div>
-
   <link href="css/style-login.css" rel="stylesheet" />
+</head>
 
   <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
-          <div class="card-body">
-            <h5 class="card-title text-center">Sign Up</h5>
-            <form id="form" class="form-signin">
-              <div class="form-label-group">
-                <input type="text" id="inputName" class="form-control" placeholder="Full Name" required autofocus />
-                <label for="inputName">Full Name</label>
-              </div>
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required
-                  autofocus />
-                <label for="inputEmail">Email address</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="text" id="inputPhone" class="form-control" placeholder="Phone Number" required />
-                <label for="inputPhone">Phone</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required />
-                <label for="inputPassword">Password</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="password" id="inputCPassword" class="form-control" placeholder="Confirm Password"
-                  required />
-                <label for="inputCPassword">Confirm Password</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="date" id="inputBirthday" class="form-control" placeholder="Birthday" required />
-                <label for="inputBirthday">Birthday</label>
-              </div>
-
-              <button style="background-color: #433535eb" class="btn btn-lg btn-primary btn-block text-uppercase">
-                Sign Up
-              </button>
-              <button id="loginBtn" style="background-color: #433535eb"
-                class="btn btn-lg btn-primary btn-block text-uppercase">
-                Already have an account? Login here!
-              </button>
-            </form>
+          <div class="auth_card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Sign Up</h5>
+              <form id="registerform" class="form-signin" method="POST">
+                <div class="form-label-group">
+                  <input type="text" id="inputName" name="name" class="form-control" placeholder="Full Name" required autofocus />
+                  <label for="inputName">Full Name</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required
+                    autofocus />
+                  <label for="inputEmail">Email address</label>
+                </div>
+  
+                <div class="form-label-group">
+                  <input type="text" id="inputPhone" name="phoneNum" class="form-control" placeholder="Phone Number" required />
+                  <label for="inputPhone">Phone</label>
+                </div>
+  
+                <div class="form-label-group">
+                  <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required />
+                  <label for="inputPassword">Password</label>
+                </div>
+  
+                <div class="form-label-group">
+                  <input type="password" id="inputCPassword" name="cPass" class="form-control" placeholder="Confirm Password"
+                    required />
+                  <label for="inputCPassword">Confirm Password</label>
+                </div>
+  
+                <div class="form-label-group">
+                  <input type="date" id="inputBirthday" name="bday" class="form-control" placeholder="Birthday" required />
+                  <label for="inputBirthday">Birthday</label>
+                </div>
+  
+                <button style="background-color: #433535eb" class="btn btn-lg btn-primary btn-block text-uppercase">
+                  Sign Up
+                </button>
+                <button id="loginBtn" style="background-color: #433535eb"
+                  class="btn btn-lg btn-primary btn-block text-uppercase">
+                  Already have an account? Login here!
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -86,56 +57,48 @@
   </div>
 
   <script>
-    var form = document.getElementById("form");
-    var loginBtn = document.getElementById("loginBtn");
+    $("#registerform").submit(e => {
+      e.preventDefault();
 
-    form.addEventListener("submit", event => {
-      event.preventDefault();
+      let data = $("#registerform").serializeArray();
+      data.push({name: "from", value: "signup"});
 
-      let data = {
-        name: $("#inputName").val(),
-        email: $("#inputEmail").val(),
-        pass: $("#inputPassword").val(),
-        phoneNum: $("#inputPhone").val(),
-        bday: $("#inputBirthday").val(),
-        from: "signup"
-      }
+      console.log(data);
 
       $.ajax({
         type: "POST",
-        url: './includes/auth.php',
+        url: 'includes/auth.php',
         data: data,
         dataType: 'JSON',
         success: function (response) {
-          if (response.result === "success") {
-            window.localStorage.setItem("email", $("#inputEmail").val());
-            window.localStorage.setItem("pass", $("#inputPassword").val());
-
+          console.log(response);
+          if (response.result === "success") {          
             let msg = (response.message).split("~_~");
 
-            window.localStorage.setItem("id", msg[0])
-            window.localStorage.setItem("name", msg[1]);
-            window.localStorage.setItem("isAdmin", msg[2]);
+            setCookie("email", $("#inputEmail").val());
+            setCookie("id", msg[0]);
+            setCookie("name", msg[1]);
+            setCookie("isAdmin", msg[2]);            
 
-            if (msg[2] == "false") {
-              window.location.replace("index.html");
-            } else {
-              window.location.replace("admin.php");
-            }
+            closeForm();
+            updateHeader();
 
           } else if (response.result === "failure") {
-            console.log(response.message);
+            console.log(response.message);   
+            alert("Some error occurred!");
           }
         }, error: function (xhr, status, error) {
-          console.log(xhr.responseText);
+          console.log(xhr.responseText);    
+          alert("Some error occurred!");
         }
       });
 
 
     });
 
-    loginBtn.addEventListener("click", event => {
-      location.href = "login.html";
+    $("#loginBtn").click(event => {
+      event.preventDefault();
+      showLoginDialog();
     });
 
   </script>

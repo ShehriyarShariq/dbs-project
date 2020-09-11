@@ -1,135 +1,151 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <title>
-        Bellaria
-    </title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="scripts/jquery-3.4.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-</head>
-
-<body id="page-top">
-    <!--Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-shrink" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">BELLARIA</a>
-            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="navbar-collapse collapse" id="navbarResponsive">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a id="home" class="nav-link js-scroll-trigger" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="about" class="nav-link js-scroll-trigger" href="index.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="order" class="nav-link js-scroll-trigger" href="order.php">Order</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="contact" class="nav-link js-scroll-trigger" href="index.html">Contact Us</a>
-                    </li>
-                    <li id="loginOrNewItem" class="nav-item dropdown">
-                        <a id="loginOrNew" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false" href="login.html">Login/Signup</a>
-                        <div id="dropDownMenu" class="dropdown-menu">
-                            <a id="myOrders" class="dropdown-item" href="#">My Orders</a>
-                            <a id="points" class="dropdown-item" href="#">Points</a>
-                            <!-- <a id="adminPanel" class="dropdown-item" href="#">Admin Panel</a> -->
-                            <a id="settings" class="dropdown-item" href="#">Settings</a>
-                            <div class="dropdown-divider"></div>
-                            <a id="logout" class="dropdown-item" href="#">Logout</a>
-                        </div>
-                    </li>
-                </ul>
+<div id="page-top">
+  <!--Navigation-->
+  <nav
+    class="navbar navbar-expand-lg navbar-light fixed-top navbar-shrink"
+    id="mainNav"
+  >
+    <div class="container">
+      <a
+        class="navbar-brand js-scroll-trigger"
+        href="#"
+        onclick="showPage(0); return false;"
+        >BELLARIA</a
+      >
+      <button
+        class="navbar-toggler navbar-toggler-right collapsed"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarResponsive">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <a
+              id="home"
+              class="nav-link js-scroll-trigger"
+              href="#"
+              onclick="showPage(0); return false;"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              id="about"
+              class="nav-link js-scroll-trigger"
+              href="#"
+              onclick="showPage(1); return false;"
+              >About</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              id="order"
+              class="nav-link js-scroll-trigger"
+              href="#"
+              onclick="showPage(2); return false;"
+              >Order</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              id="contact"
+              class="nav-link js-scroll-trigger"
+              href="#"
+              onclick="showPage(3); return false;"
+              >Contact Us</a
+            >
+          </li>
+          <li id="loginOrNewItem" class="nav-item dropdown">
+            <a
+              id="loginOrNew"
+              class="nav-link dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              href="login.html"
+              >Login/Signup</a
+            >
+            <div id="dropDownMenu" class="dropdown-menu">
+              <a
+                id="myOrders"
+                class="dropdown-item"
+                href="#"
+                onclick="showPage(4); return false;"
+                >My Orders</a
+              >
+              <!-- <a id="adminPanel" class="dropdown-item" href="#">Admin Panel</a> -->
+              <a
+                id="settings"
+                class="dropdown-item"
+                href="#"
+                onclick="showPage(5); return false;"
+                >Settings</a
+              >
+              <div class="dropdown-divider"></div>
+              <a
+                id="logout"
+                class="dropdown-item"
+                href="#"
+                onclick="logoutBtn()"
+                >Logout</a
+              >
             </div>
-        </div>
-    </nav>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <script>
-        let loginOrNewItem = document.getElementById("loginOrNewItem");
-        let loginOrNewBtn = document.getElementById("loginOrNew");
-        let dropDownMenu = document.getElementById("dropDownMenu");
+  <script>
+    $("#loginOrNew").click((event) => {
+      const storedEmail = checkCookie("email");
+      if (!storedEmail) {
+        $("#loginOrNewItem").removeClass("dropdown");
+        $("#dropDownMenu").hide();
 
-        let myOrdersBtn = document.getElementById("myOrders");
-        let settingsBtn = document.getElementById("settings");
-        let logoutBtn = document.getElementById("logout");
+        showLoginDialog();
+      } else {
+        $("#loginOrNewItem").addClass("dropdown");
+        $("#dropDownMenu").show();
+      }
+    });
 
-        const name = window.localStorage.getItem("name");
-        if (name != "" && name != null) {
-            loginOrNewBtn.innerHTML = "Hi, " + name;
-        } else {
-            loginOrNewBtn.innerHTML = "Login/Signup";
-        }
+    function logoutBtn() {
+      setCookie("email", "");
+      setCookie("id", "");
+      setCookie("name", "");
+      setCookie("isAdmin", "");
 
-
-        loginOrNewBtn.addEventListener("click", event => {
-            const storedEmail = window.localStorage.getItem("email");
-            const pass = window.localStorage.getItem("pass");
-            if (((storedEmail == null) || (storedEmail == "")) || ((pass == null) || (pass == ""))) {
-                event.preventDefault();
-                loginOrNewItem.classList.remove("dropdown");
-                dropDownMenu.style.display = "none";
-
-                const currURL = window.location.href;
-                if ((currURL.indexOf('login') == -1) && (currURL.indexOf('sign-up') == -1)) {
-                    window.location.replace("login.html")
-                }
-            } else {
-                loginOrNewItem.classList.add("dropdown");
-                dropDownMenu.style.display = "block";
-            }
-        });
-
-        myOrdersBtn.addEventListener("click", event => {
-            const isAdmin = window.localStorage.getItem("isAdmin") == "true";
-            if (isAdmin) {
-                window.location.replace("admin.php");
-            } else {
-                window.location.replace("myorders.php");
-            }
-        });
-
-        settingsBtn.addEventListener("click", event => {
-            const isAdmin = window.localStorage.getItem("isAdmin") == "true";
-            if (isAdmin) {
-                window.location.replace("admin.php");
-            } else {
-                window.location.replace("settings.html");
-            }
-        });
-
-        logoutBtn.addEventListener("click", event => {
-            window.localStorage.setItem("email", "");
-            window.localStorage.setItem("pass", "");
-            window.localStorage.setItem("id", "")
-            window.localStorage.setItem("name", "");
-            window.localStorage.setItem("isAdmin", "");
-
-            window.location.replace("index.html");
-        });
-    </script>
-
-</body>
-
-</html>
+      $.ajax({
+        type: "POST",
+        url: "./includes/auth.php",
+        data: {
+          from: "logout",
+        },
+        dataType: "JSON",
+        success: function (response) {
+          if (response.result === "success") {
+            $("#loginOrNewItem").removeClass("dropdown");
+        $("#dropDownMenu").hide();
+            updateHeader();
+            showPage(0);
+          } else if (response.result === "failure") {
+            console.log(response.message);
+            alert("Some error occurred!");
+          }
+        },
+        error: function (jqXhr) {
+          console.log(jqXhr.responseText);
+          alert("Failed to logout user!");
+        },
+      });
+    }
+  </script>
+</div>

@@ -1,162 +1,196 @@
 body {
-    overflow: auto;
-    margin: 0;
-    padding: 0;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
 }
 
 .category {
-    color: gray;
-    text-align: center;
+  color: gray;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+.category:hover {
+  color: #3f3537;
 }
 
 .category-active {
-    padding-bottom: 6px;
-    border-bottom: 1px solid brown;
-    font-weight: bold;
-    color: black;
+  padding-bottom: 6px;
+  border-bottom: 1px solid brown;
+  font-weight: bold;
+  color: black;
 }
 
 .order-body {
-    width: 90%;
-    height: 100vh;
-    margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .cart {
-    width: 40%;
-    position: fixed;
-    right: 1%;
-    height: 100vh;
-    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.12)
+  width: 40%;
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.12);
 }
 
 .upper-header {
-    width: 60%;
-    height: auto;
-    position: fixed;
-    list-style: none;
-    padding-top: 20px;
-    font-size: 22px;
+  width: 100%;
+  height: auto;
+  list-style: none;
+  padding-top: 20px;
+  font-size: 22px;
 }
 
 .checkout {
-    width: 100%;
-    margin-top: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .head {
-    margin-top: 10%;
-    color: #663b3f;
+  margin-top: 70px;
+  color: #663b3f;
 }
 
 .head i {
-    font-size: 10px;
-    margin: 0 7px;
+  font-size: 10px;
+  margin: 0 7px;
 }
 
 .product-list {
-    list-style-type: none;
-    margin-top: 5%;
+  list-style-type: none;
+  margin-top: 5%;
+}
+
+.product-list hr {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .product-list li {
-    font-size: 20px;
-    color: black;
+  font-size: 20px;
+  color: black;
+  padding: 1rem 0 !important;
+  cursor: pointer;
+}
+
+.product-list li:hover {
+  background-color: #f7f7f7aa;
 }
 
 .product-list i {
-    padding: 5px;
-    margin-left: 20px;
-    background-color: #663b3f;
-    color: white;
-    font-size: 20px;
+  padding: 5px;
+  margin-left: 20px;
+  background-color: #663b3f;
+  color: white;
+  font-size: 20px;
 }
 
 .line {
-    border-top: 3px solid #663b3f;
+  border-top: 3px solid #663b3f;
+  width: 100%;
 }
 
 .product-list span {
-    margin-right: 10%;
-    float: right;
-    font-size: 16px;
-    color: gray;
+  margin-right: 10%;
+  float: right;
+  font-size: 16px;
+  color: gray;
 }
 
 .pop-up-plus,
 .checkout-popup {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  padding-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+.pop-up-plus > div,
+.checkout-popup > div {
+  display: inline-block;
 }
 
 .pop-up-plus .row {
-    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.12);
-    padding: 10px 0;
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px 0;
 }
 
 .pop-up-plus .row .col-3 {
-    align-items: center;
-    justify-content: space-around;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .pop-up-plus .row .col-9 button {
-    width: 90%;
+  width: 90%;
 }
 
 .pop-up-details,
 .confirm-order {
-    background-color: white;
-    width: 45vw;
-    height: auto;
-    margin: 0 auto;
-    margin-top: 2%;
-    overflow: auto;
+  background-color: white;
+  width: 45vw;
+  height: auto;
+  margin: 0 auto;
+  overflow: auto;
 }
 
 .toppings {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .toppings li {
-    text-align: left;
+  text-align: left;
 }
 
 .toppings span {
-    float: right;
-    margin-right: 10%;
+  float: right;
+  margin-right: 10%;
 }
 
 .pop-up-plus h3 {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 .pop-up-plus .weight-cake {
-    text-align: left;
+  text-align: left;
 }
 
 .fa-times {
-    float: right;
-    position: fixed;
-    right: 28%;
-    color: red;
+  float: right;
+  position: fixed;
+  right: 28%;
+  color: red;
 }
 
 .item-list {
-    list-style: none;
+  list-style: none;
 }
 
 .item-list li {
-    width: 100%;
+  width: 100%;
 }
 
 #new-address-add {
-    float: right;
-    margin-right: 50px;
+  float: right;
+  margin-right: 50px;
 }
 
 select {
-    width: 50%;
+  width: 50%;
+}
+
+#orderFooter {
+  width: 100%;
+  margin-top: 10vh;
+}
+
+#qty-d,
+#qty-i {
+  cursor: pointer;
 }

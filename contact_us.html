@@ -1,0 +1,136 @@
+<style>
+  html,
+  body {
+    height: 100%;
+  }
+
+  .contact_us {
+    margin: 50px 30px;
+    display: grid;
+    justify-content: center;
+    border: none !important;
+  }
+
+  .contact_us > h1 {
+    font-size: calc(25px + (40 - 25) * ((100vw - 300px) / (1600 - 300)));
+  }
+
+  .contact_us > p {
+    width: 450px;
+    margin-top: 20px;
+  }
+
+  .contact_social_links {
+    margin-top: 20px;
+  }
+
+  .contact_social_links > a {
+    color: #212529;
+    font-size: 25px;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+
+  .contact_us > h2 {
+    margin-top: 20px;
+    font-size: calc(25px + (30 - 25) * ((100vw - 300px) / (1600 - 300)));
+  }
+
+  .contact_form {
+    margin-top: 20px;
+    width: 450px;
+  }
+
+  .contact_item {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .contact_input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #212529;
+    transition: all 0.5s ease;
+    outline: none;
+  }
+
+  .contact_input:focus {
+    box-shadow: 0 0 5px #212529;
+  }
+
+  textarea {
+    height: 150px;
+  }
+
+  @media screen and (max-width: 500px) {
+    .contact_us > p {
+      width: 300px;
+    }
+
+    .contact_form {
+      width: 300px;
+    }
+  }
+</style>
+
+<div class="contact_us card">
+  <h1>Contact Us</h1>
+  <p>
+    Want to contact us? Feel free to fill the form below or you can also contact
+    us through our social media pages. We will contact you accordingly. Thank
+    You.
+  </p>
+  <div class="social d-flex justify-content-center">
+    <a
+      href="https://twitter.com/_Sherry_S"
+      target="_blank"
+      class="mx-2"
+      style="margin-right: 20px !important"
+    >
+      <i class="fa fa-twitter"></i>
+    </a>
+    <a
+      href="https://www.facebook.com/shehriyar.shariq/"
+      target="_blank"
+      class="mx-2"
+      style="margin-right: 20px !important"
+    >
+      <i class="fa fa-facebook"></i>
+    </a>
+    <a href="https://github.com/ShehriyarShariq/" target="_blank" class="mx-2">
+      <i class="fa fa-github"></i>
+    </a>
+  </div>
+  <h2>OR</h2>
+  <form class="contact_form">
+    <div class="contact_item">
+      <input
+        class="contact_input"
+        type="text"
+        name="name"
+        onChange="{handleInput}"
+        placeholder="Enter your name"
+        required
+      />
+    </div>
+    <div class="contact_item">
+      <input
+        class="contact_input"
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      />
+    </div>
+    <div class="contact_item">
+      <textarea
+        type="text"
+        class="contact_input"
+        name="comment"
+        placeholder="Enter your comment"
+        required
+      />
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>

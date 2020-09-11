@@ -2,7 +2,7 @@
 
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbPassword = "aprl14th";
+$dbPassword = "";
 $dbName = "bellaria";
 
 $connect = new mysqli($dbServername, $dbUsername, $dbPassword, $dbName) or die("Connection failed!");

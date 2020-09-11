@@ -1,252 +1,278 @@
-<!DOCTYPE html>
-<html>
+<div id="header"></div>
 
-<head>
-    <title>Settings</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/settings.css" />
 
-    <script src="scripts/jquery-3.4.1.min.js"></script>
-
-    <script>
-        $(function () {
-            $("#header").load("header.html", function () {
-                let navBar = document.getElementById("mainNav");
-                let headerDiv = document.getElementById("header");
-
-                headerDiv.style.height = navBar.getBoundingClientRect().height + "px";
-            });
-        });
-    </script>
-</head>
-
-<body id="page-top">
-
-    <div id="header"></div>
-
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/settings.css">
-
-    <section id="address-edit-popup" class="d-none">
-        <i class="fa fa-times fa-2x"></i>
-        <div class="container my-5 py-5">
-            <h4 class="text-center my-4 pt-3">Edit Address</h4>
-            <div>
-                <textarea name="edited-address" id="edit-address" cols="30" rows="10"></textarea> <br> <br>
-                <input style="width: 50%" type="submit" class="btn btn-primary" id="update-address"
-                    value="update address">
-            </div>
-        </div>
-    </section>
-
-    <section id="new-address-popup" class="d-none">
-        <i class="fa fa-times fa-2x"></i>
-        <div class="container my-5 py-5">
-            <h4 class="text-center my-4 pt-3">Add New Address</h4>
-            <div>
-                <textarea name="new-address" id="add-new-address" cols="30" rows="10"></textarea> <br> <br>
-                <input style="width: 50%" type="submit" class="btn btn-primary" id="add-address"
-                    value="add new address">
-            </div>
-        </div>
-    </section>
-
-    <div class="container py-5">
-        <form id="changePassForm" class="change-password">
-            <h4>Change Passowrd</h4>
-            <hr>
-            <div class="form-group">
-                <input id="currPass" type="password" placeholder="Current Password" required>
-                <input id="newPass" type="password" placeholder="New Passowrd" required>
-                <input id="newPassRe" type="password" placeholder="Confirm New Password" required>
-                <input type="submit" class="btn btn-primary" value="change passowrd">
-            </div>
-        </form>
-
-        <div class="address-section my-5">
-            <h3 class="mb-5">Your Address
-                <hr>
-            </h3>
-            <ul id="currentAddresses" class="address-content">
-                <li>Emporium Mall Road Lhr<i class="fa fa-pencil"></i></li>
-                <hr>
-            </ul>
-            <button id="add-another-address" class="btn btn-primary">Add new address</button>
-        </div>
-
+<section id="address-edit-popup" class="d-none">
+  <i class="fa fa-times fa-2x"></i>
+  <div class="container my-5 py-5">
+    <h4 class="text-center my-4 pt-3">Edit Address</h4>
+    <div>
+      <textarea
+        name="edited-address"
+        id="edit-address"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <br />
+      <br />
+      <input
+        style="width: 50%"
+        type="submit"
+        class="btn btn-primary"
+        id="update-address"
+        value="update address"
+      />
     </div>
+  </div>
+</section>
 
-    <script>
-        let changePassForm = document.getElementById("changePassForm");
-        let addNewAddress = document.getElementById("add-address");
-        let updateAddress = document.getElementById("update-address");
-        let newAddressText = document.getElementById("add-new-address");
-        let updateAddressText = document.getElementById("edit-address");
+<section id="new-address-popup" class="d-none">
+  <i class="fa fa-times fa-2x"></i>
+  <div class="container my-5 py-5">
+    <h4 class="text-center my-4 pt-3">Add New Address</h4>
+    <div>
+      <textarea
+        name="new-address"
+        id="add-new-address"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <br />
+      <br />
+      <input
+        style="width: 50%"
+        type="submit"
+        class="btn btn-primary"
+        id="add-address"
+        value="add new address"
+      />
+    </div>
+  </div>
+</section>
 
-        let currentAddressesList = document.getElementById("currentAddresses");
+<div class="container py-5">
+  <form id="changePassForm" class="change-password">
+    <h4>Change Passowrd</h4>
+    <hr />
+    <div class="form-group">
+      <input
+        id="currPass"
+        type="password"
+        placeholder="Current Password"
+        required
+      />
+      <input id="newPass" type="password" placeholder="New Passowrd" required />
+      <input
+        id="newPassRe"
+        type="password"
+        placeholder="Confirm New Password"
+        required
+      />
+      <input type="submit" class="btn btn-primary" value="change passowrd" />
+    </div>
+  </form>
 
-        let allCurrAddresses = [];
-        let currEditBox = "none";
+  <div class="address-section my-5">
+    <h3 class="mb-5">
+      Your Address
+      <hr />
+    </h3>
+    <ul id="currentAddresses" class="address-content">
+      <li>Emporium Mall Road Lhr<i class="fa fa-pencil"></i></li>
+      <hr />
+    </ul>
+    <button id="add-another-address" class="btn btn-primary">
+      Add new address
+    </button>
+  </div>
+</div>
 
-        function loadAddresses() {
-            const custId = window.localStorage.getItem("id");
+<script>
+  /*let changePassForm = document.getElementById("changePassForm");
+  let addNewAddress = document.getElementById("add-address");
+  let updateAddress = document.getElementById("update-address");
+  let newAddressText = document.getElementById("add-new-address");
+  let updateAddressText = document.getElementById("edit-address");
 
-            let data = {
-                cust_id: custId,
-                from: "loadAddresses"
-            };
+  let currentAddressesList = document.getElementById("currentAddresses");
 
-            $.ajax({
-                type: "POST",
-                url: './includes/settings_commands.php',
-                data: data,
-                dataType: 'JSON',
-                success: function (response) {
-                    if (response.result === "success") {
-                        console.log(response.message);
-                        allCurrAddresses = response.message;
-                        currentAddressesList.innerHTML = "";
+  let allCurrAddresses = [];
+  let currEditBox = "none";
 
-                        for (var i = 0; i < allCurrAddresses.length; i++) {
-                            const currAddress = allCurrAddresses[i];
-                            let addressItem = document.createElement("li");
-                            addressItem.setAttribute("name", i + "_" + currAddress['cust_id'] + "_" + currAddress['address_id']);
-                            addressItem.innerHTML = currAddress['address_detail'] + "<i class=\"fa fa-pencil\"></i><hr>";
-                            currentAddressesList.appendChild(addressItem);
-                        }
+  function loadAddresses() {
+    $.ajax({
+      type: "POST",
+      url: "./includes/order_commands.php",
+      data: {
+        from: "fetchAddress",
+      },
+      dataType: "JSON",
+      success: function (response) {
+        console.log(response.addresses);
 
+        address = response.addresses;
 
-                    } else if (response.result === "failure") {
-                        console.log(response.message);
-                    }
-                }, error: function (xhr, status, error) {
-                    console.log(xhr.responseText);
-                }
-            });
+        for (i in address) {    
+          $("#chooseAddress").append(
+            "<option name='" +
+              address[i].id +
+              "'>" +
+              address[i].address +
+              "</option>"
+          );
         }
 
-        loadAddresses();
+        $("#itemsList").html("");
+        for (i in orderMap.items) {
+          const item = orderMap.items[i];
+          $("#itemsList").append(
+            '<li class="d-flex justify-content-around"><span>' +
+              item.qty +
+              " " +
+              categories[item.categoryID][item.itemID].name +
+              "</span>(Topping: " +
+              (item.toppingID != ""
+                ? toppings[item.toppingID].name
+                : "No toppings") +
+              ")<span>PKR " +
+              (categories[item.categoryID][item.itemID].price +
+                (item.toppingID != "" ? toppings[item.toppingID].price : 0)) *
+                item.qty +
+              "</span></li>"
+          );
+        }
 
-        changePassForm.addEventListener("submit", event => {
-            event.preventDefault();
-            const currPass = $('#currPass').val();
-            const newPass = $('#newPass').val();
-            const newPassRe = $('#newPassRe').val();
+        $("#checkoutTotal").text("PKR " + $("#total").text());
 
-            if (newPass == newPassRe) {
-                const id = window.localStorage.getItem("id");
+        $(".checkout-popup").removeClass("d-none");
+      },
+      error: function (jqXhr) {
+        console.log(jqXhr.responseText);
+        alert("Error Fetching Address!");
+      },
+    });
+  }
 
-                let data = {
-                    id: id,
-                    currPass: currPass,
-                    newPass: newPass,
-                    from: "passUpdate"
-                };
+  loadAddresses();
 
-                $.ajax({
-                    type: "POST",
-                    url: './includes/settings_commands.php',
-                    data: data,
-                    dataType: 'JSON',
-                    success: function (response) {
-                        if (response.result === "success") {
-                            console.log(response.message);
-                            $('#currPass').val("");
-                            $('#newPass').val("");
-                            $('#newPassRe').val("");
-                        } else if (response.result === "failure") {
-                            console.log(response.message);
-                        }
-                    }, error: function (xhr, status, error) {
-                        console.log(xhr.responseText);
-                    }
-                });
-            }
-        });
+  changePassForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const currPass = $("#currPass").val();
+    const newPass = $("#newPass").val();
+    const newPassRe = $("#newPassRe").val();
 
-        addNewAddress.addEventListener("click", event => {
-            if (newAddressText.value != "") {
-                const id = window.localStorage.getItem("id");
+    if (newPass == newPassRe) {
+      const id = window.localStorage.getItem("id");
 
-                let data = {
-                    id: id,
-                    address: newAddressText.value,
-                    from: "addAddress"
-                };
+      let data = {
+        id: id,
+        currPass: currPass,
+        newPass: newPass,
+        from: "passUpdate",
+      };
 
-                $.ajax({
-                    type: "POST",
-                    url: './includes/settings_commands.php',
-                    data: data,
-                    dataType: 'JSON',
-                    success: function (response) {
-                        if (response.result === "success") {
-                            console.log(response.message);
-                            $('#new-address-popup').addClass('d-none');
-                            loadAddresses();
-                        } else if (response.result === "failure") {
-                            console.log(response.message);
-                        }
-                    }, error: function (xhr, status, error) {
-                        console.log(xhr.responseText);
-                    }
-                });
-            }
-        });
+      $.ajax({
+        type: "POST",
+        url: "./includes/settings_commands.php",
+        data: data,
+        dataType: "JSON",
+        success: function (response) {
+          if (response.result === "success") {
+            console.log(response.message);
+            $("#currPass").val("");
+            $("#newPass").val("");
+            $("#newPassRe").val("");
+          } else if (response.result === "failure") {
+            console.log(response.message);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.log(xhr.responseText);
+        },
+      });
+    }
+  });
 
-        updateAddress.addEventListener("click", event => {
-            const oldAddress = allCurrAddresses[currEditBox];
-            console.log(oldAddress);
-            if ((updateAddressText.value != "") && (updateAddressText.value != oldAddress['address_detail'])) {
-                const custId = window.localStorage.getItem("id");
+  addNewAddress.addEventListener("click", (event) => {
+    if (newAddressText.value != "") {
+      const id = window.localStorage.getItem("id");
 
-                let data = {
-                    cust_id: custId,
-                    address_id: oldAddress['address_id'],
-                    address: updateAddressText.value,
-                    from: "updateAddress"
-                };
+      let data = {
+        id: id,
+        address: newAddressText.value,
+        from: "addAddress",
+      };
 
-                $.ajax({
-                    type: "POST",
-                    url: './includes/settings_commands.php',
-                    data: data,
-                    dataType: 'JSON',
-                    success: function (response) {
-                        if (response.result === "success") {
-                            console.log(response.message);
-                            $('#address-edit-popup').addClass('d-none');
-                            loadAddresses();
-                        } else if (response.result === "failure") {
-                            console.log(response.message);
-                        }
-                    }, error: function (xhr, status, error) {
-                        console.log(xhr.responseText);
-                    }
-                });
-            }
-        });
+      $.ajax({
+        type: "POST",
+        url: "./includes/settings_commands.php",
+        data: data,
+        dataType: "JSON",
+        success: function (response) {
+          if (response.result === "success") {
+            console.log(response.message);
+            $("#new-address-popup").addClass("d-none");
+            loadAddresses();
+          } else if (response.result === "failure") {
+            console.log(response.message);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.log(xhr.responseText);
+        },
+      });
+    }
+  });
 
+  updateAddress.addEventListener("click", (event) => {
+    const oldAddress = allCurrAddresses[currEditBox];
+    console.log(oldAddress);
+    if (
+      updateAddressText.value != "" &&
+      updateAddressText.value != oldAddress["address_detail"]
+    ) {
+      const custId = window.localStorage.getItem("id");
 
-        $('.address-content').on('click', 'li', function () {
-            $('#address-edit-popup').removeClass('d-none');
-            $('#edit-address').val($(this).text());
-            const itemNameAttrs = (this.getAttribute("name")).split("_");
-            currEditBox = itemNameAttrs[0];
-        });
-        $('.fa-times').click(function () {
-            $('#address-edit-popup').addClass('d-none');
-            $('#new-address-popup').addClass('d-none');
-        });
-        $('#add-another-address').click(function () {
-            $('#new-address-popup').removeClass('d-none');
-        });
-    </script>
-</body>
+      let data = {
+        cust_id: custId,
+        address_id: oldAddress["address_id"],
+        address: updateAddressText.value,
+        from: "updateAddress",
+      };
 
-</html>
+      $.ajax({
+        type: "POST",
+        url: "./includes/settings_commands.php",
+        data: data,
+        dataType: "JSON",
+        success: function (response) {
+          if (response.result === "success") {
+            console.log(response.message);
+            $("#address-edit-popup").addClass("d-none");
+            loadAddresses();
+          } else if (response.result === "failure") {
+            console.log(response.message);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.log(xhr.responseText);
+        },
+      });
+    }
+  });
+
+  $(".address-content").on("click", "li", function () {
+    $("#address-edit-popup").removeClass("d-none");
+    $("#edit-address").val($(this).text());
+    const itemNameAttrs = this.getAttribute("name").split("_");
+    currEditBox = itemNameAttrs[0];
+  });
+  $(".fa-times").click(function () {
+    $("#address-edit-popup").addClass("d-none");
+    $("#new-address-popup").addClass("d-none");
+  });
+  $("#add-another-address").click(function () {
+    $("#new-address-popup").removeClass("d-none");
+  });*/
+</script>

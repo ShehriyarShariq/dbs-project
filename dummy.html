@@ -1,0 +1,146 @@
+<html lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <title>Angular Dummy Page</title>
+
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #clockOuter {
+        border: 1px dashed black;
+      }
+
+      h1 {
+        font-family: sans-serif;
+        margin: 0;
+        margin-top: 20px;
+        padding: 10px 0;
+        border: 5px dashed black;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-app="myClock" ng-controller="myClockCtrl">
+      <div id="clockOuter">
+        <div>
+          <canvas id="clock" width="400px" height="400px"> </canvas>
+        </div>
+        <div>
+          <h1 style="text-align: center;">{{time}}</h1>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+      var canvas = document.getElementById("clock");
+      var ctx = canvas.getContext("2d");
+      var radius = canvas.height / 2;
+      ctx.translate(radius, radius);
+      radius = radius * 0.9;
+
+      var app = angular.module("myClock", []);
+      app.controller("myClockCtrl", function ($scope, $interval) {
+        let time = new Date();
+        drawClock(time);
+        $scope.time = time.toLocaleTimeString();
+        $interval(function () {
+          time = new Date();
+          drawClock(time);
+          $scope.time = time.toLocaleTimeString();
+        }, 1000);
+      });
+
+      function drawClock(time) {
+        drawFace(ctx, radius);
+        drawNumbers(ctx, radius);
+        drawTime(ctx, radius, time);
+      }
+
+      function drawFace(ctx, radius) {
+        var grad;
+        ctx.beginPath();
+        ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = "gray";
+        ctx.fill();
+        grad = ctx.createRadialGradient(
+          0,
+          0,
+          radius * 0.95,
+          0,
+          0,
+          radius * 1.05
+        );
+        //grad.addColorStop(0, "#333");
+        grad.addColorStop(0.5, "white");
+        //grad.addColorStop(1, "#333");
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = radius * 0.1;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+        ctx.fillStyle = "#333";
+        ctx.fill();
+      }
+
+      function drawNumbers(ctx, radius) {
+        var ang;
+        var num;
+        ctx.font = radius * 0.15 + "px arial";
+        ctx.textBaseline = "middle";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "lightgray";
+        for (num = 1; num < 13; num++) {
+          ang = (num * Math.PI) / 6;
+          ctx.rotate(ang);
+          ctx.translate(0, -radius * 0.85);
+          ctx.rotate(-ang);
+          ctx.fillText(num.toString(), 0, 0);
+          ctx.rotate(ang);
+          ctx.translate(0, radius * 0.85);
+          ctx.rotate(-ang);
+        }
+      }
+
+      function drawTime(ctx, radius, time) {
+        var hour = time.getHours();
+        var minute = time.getMinutes();
+        var second = time.getSeconds();
+        //hour
+        hour = hour % 12;
+        hour =
+          (hour * Math.PI) / 6 +
+          (minute * Math.PI) / (6 * 60) +
+          (second * Math.PI) / (360 * 60);
+        drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+        //minute
+        minute = (minute * Math.PI) / 30 + (second * Math.PI) / (30 * 60);
+        drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+        // second
+        second = (second * Math.PI) / 30;
+        drawHand(ctx, second, radius * 0.9, radius * 0.02);
+      }
+
+      function drawHand(ctx, pos, length, width) {
+        ctx.beginPath();
+        ctx.lineWidth = width;
+        ctx.lineCap = "round";
+        ctx.moveTo(0, 0);
+        ctx.rotate(pos);
+        ctx.lineTo(0, -length);
+        ctx.stroke();
+        ctx.rotate(-pos);
+      }
+
+      ///////////////////
+    </script>
+  </body>
+</html>
